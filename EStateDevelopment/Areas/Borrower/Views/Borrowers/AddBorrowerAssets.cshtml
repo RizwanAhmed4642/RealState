@@ -1,0 +1,88 @@
+﻿@model EStateDevelopment.Data.BorrowerAsset
+@{
+    ViewBag.Title = "AddBorrowerAssets";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form">
+            <div class="card-header ">
+                <div class="row">
+                    <div class="col-md-5 adj-gridhead ">
+                        <h4>Manage Assets <small>(Borrower)</small></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body ">
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.AssetsValue, "Assets Value", htmlAttributes: new { @class = "control-label" })
+                                </div>
+                                <div class="col-md-3 ">
+                                    @Html.EditorFor(model => model.AssetsValue, new { htmlAttributes = new { @class = "form-control", @placeholder="Example" } })
+                                    @Html.ValidationMessageFor(model => model.AssetsValue, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-3">
+                                    @Html.LabelFor(model => model.OwnerShipPercentage, "OwnerShip Percentage", htmlAttributes: new { @class = "control-label " })
+
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.EditorFor(model => model.OwnerShipPercentage, "OwnerShip Percentage", new { htmlAttributes = new { @class = "form-control", @placeholder = "80.0%" } })
+                                    @Html.ValidationMessageFor(model => model.OwnerShipPercentage, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.AssetsType, "AssetsTypee", htmlAttributes: new { @class = "control-label" })
+                                </div>
+                                <div class="col-md-3 ">
+                                    <select name="AssetsType" class="selectpicker" data-title="select type" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                                        <option value="id">A</option>
+                                        <option value="ms">yu</option>
+                                        <option value="ca">Català</option>
+
+                                        <option value="ko">sa</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-2 right">
+                                    @Html.LabelFor(model => model.AssetFile, "Upload File", htmlAttributes: new { @class = "control-label " })
+
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-file-upload form-file-multiple ">
+                                        <input type="file" name="AssetFile" multiple="" class="inputFileHidden">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class=" form-group card-footer col-md-12 mr-auto ml-auto">
+                                <input type="submit" value="Submit" class="btn btn-fill btn-info btn-wd fr">
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,28 @@
+﻿.fr {
+    float: right !important;
+}
+.rn{
+    resize: none !important;
+}
+.hotw{
+
+    height: 120px !important;
+}
+.t-from-r {
+    position: relative;
+    right: 5%;
+}
+.adj-gridhead {
+    position: relative;
+    left: 2%;
+}
+.cp{
+    cursor: pointer !important;
+}
+.cbtn {
+    position: relative;
+    right: 175%;
+}
+.db{
+    display: block !important;
+}

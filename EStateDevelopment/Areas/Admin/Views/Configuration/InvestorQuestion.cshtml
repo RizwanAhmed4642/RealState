@@ -1,0 +1,476 @@
+﻿@model EStateDevelopment.Areas.Investors.ViewModel.InvestorQuestionViewModel
+@{
+    ViewBag.Title = "AddInvestorQuestion";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/HomeIndex.js"></script>
+<script>
+
+    function ConfirmDelete() {
+        return confirm('Are you sure you want to delete?');
+    }
+    function ConfirmUpdate() {
+        return confirm('Are you sure you want to update record?');
+    }
+    function myFunc() {
+        debugger
+        $("#txtweight").val('');
+        $("#txtContents").val('');
+        $("#itemvalue").val('');
+        $("#errorlength").html('');
+        $("#errorwidth").html('');
+        $("#errorheight").html('');
+        $("#errorweight").html('');
+        $("#errorPacket").html('');
+    }
+</script>
+
+@if (TempData["response"] != null)
+{
+    <div class="alert alert-success" id="msgalert">
+        @TempData["response"].ToString()
+    </div>
+}
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 ml-auto mr-auto">
+
+                    <div class="card card-wizard">
+                        <div class="card-header ">
+                            <h3 class="card-title text-center">Investor Questions</h3>
+                            @*<p class="card-category text-center">Split a complicated flow in multiple steps</p>*@
+                        </div>
+                        <div class="card-body ">
+                            <ul class="nav nav-tabs col-md-12 ">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#tab1" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">Add Questions</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#tab2" data-toggle="tab" role="tab" aria-controls="tab2" aria-selected="true">List Questions </a>
+                                </li>
+
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                                    @*<p class="text-center">Please Add Question For Investors</p>*@
+                                    @using (Html.BeginForm("AddInvestorQuestion", "Configuration", FormMethod.Post))
+                                    {
+                                        <div class="row">
+
+                                            <div class="col-md-8  col-sm-6 px-1">
+                                                <div class="form-group" style="padding:30px">
+                                                    <label>  <h4>Add Question</h4></label>
+                                                    <br />
+                                                    @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control", placeholder = "Add Qestion ", } })
+                                                    @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger db" })
+
+
+                                                    <br />
+                                                    <select name="Priority" class="selectpicker" data-title="--- Select Priority ---" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                                                        <option value="High">High</option>
+                                                        <option value="Low">Low</option>
+
+
+
+                                                    </select>
+                                                    <br />
+                                                    <br />
+
+
+                                                    <select name="Control" id="mysel" class="selectpicker" data-title="--- Select Your Question Type ---" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                                                        <option value="Yes/No">Yes/No</option>
+                                                        <option value="Text">Text</option>
+                                                        <option value="Multiple">Multiple</option>
+
+                                                    </select>
+                                                    @*<button id="myBtn" class="btn btn-info">Open Modal</button>*@
+
+                                                    <!-- The Modal -->
+                                                    <div id="myModal" class="modal">
+
+
+                                                        <!-- Modal content -->
+                                                        <div class="modal-content">
+                                                            <div class="row">
+                                                                <div class="col-md-3 ml-auto">
+                                                                    <span class="close pull-right">&times;</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label class="dim">Option:</label>
+                                                                    <input type="Text" class="form-control txtinput" id="txtweight" placeholder="Add Question" />
+                                                                    <div class="text-danger" id="errorweight"></div>
+                                                                    <div style="color:red" id="weight"></div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class=" col-sm-10">
+
+                                                                    <a></a><input type='button' onclick="myFunc()" value='Refresh' class="btn btn-primary send-btn pull-right btn-wd" />
+                                                                </div>
+
+                                                                <div class=" col-sm-2">
+                                                                    <a class="btn btn-primary send-btn pull-right add-record btn-wd" data-added="0" style="color: white"> Add</a>
+                                                                    <div class="text-danger" id="errorPacket"></div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div style="display:none;">
+                                                                <table id="sample_table">
+                                                                    <tr id="rec-">
+                                                                        <td><span class="sn"></span>.</td>
+
+                                                                        <td id="tdWeight"></td>
+
+                                                                        <td><a class="btn btn-link btn-danger remove" data-id="0"><i class="fa fa-times"></i></a></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                            <div enctype="multipart/form-data">
+                                                                <table class="table table-bordered" id="tbl_posts">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>#</th>
+
+                                                                            <th> Options</th>
+
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="tbl_posts_body">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="ml-auto col-md-2">
+                                                                    <span class="btn btn-primary btn-wd send-btn" id="cmdContinue" onclick="savequote()">Submit<i class="las la-arrow-right pl-3"></i></span>
+                                                                </div>
+                                                            </div>
+
+
+
+
+
+
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    @*@Html.DropDownList("Answer", new List<SelectListItem>{new SelectListItem{ Text="Yes/No", Value="Yes/No"},new SelectListItem{ Text="Text", Value="Text"}
+                                                        ,new SelectListItem{ Text="Multiple", Value="Multiple"  },}, "--- Select Your Question Type ---", new { @class = "form-control" })*@
+
+
+                                                    @*@Html.DropDownList("Answer", new List<SelectListItem> { new SelectListItem { Text = "High", Value = "High" }, new SelectListItem { Text = "Low", Value = "Low" } }, "--- Select Priority ---", new { @class = "form-control" })*@
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-info btn-fill  btn-wd">Submit</button>
+                                    }
+                                </div>
+                                <div class="tab-pane fade" id="tab2" role="tabpanel">
+                                    <h5 class="text-center">List of Questions</h5>
+
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>SER NO</th>
+                                                <th>Question</th>
+                                                <th>Actions</th>
+
+                                            </tr>
+                                        </thead>
+                                        @{int i = 1;}
+                                        <tbody>
+                                            @foreach (var item in ViewBag.QuestionList)
+                                            {
+                                                <tr>
+                                                    <td>@i</td>
+                                                    <td>@item.Question</td>
+
+
+                                                    <td>
+
+                                                        @*<a class="btn btn-link btn-warning edit" onclick="ConfirmUpdate()? location.href='@Url.Action("UpdateInvestorQuestion", "Configuration", new { InvesterQuestionsID = item.InvesterQuestionsID })' : null"><i class="fa fa-edit"></i></a>*@
+                                                        <a class="btn btn-link btn-danger remove" onclick="ConfirmDelete()? location.href='@Url.Action("DeleteInvestorQuestion", "Configuration", new { id = item.InvesterQuestionsID })': null"><i class="fa fa-times"></i></a>
+                                                    </td>
+                                                </tr>
+                                                i++;
+                                            }
+
+
+                                        </tbody>
+                                    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function () {
+            $("#msgalert").hide();
+        }, 3500);
+        $(function () {
+            $("#mysel").change(function () {
+                var val = $(this).val();
+
+                if (val == "Multiple") {
+                    //demo.showSwal('input-field');
+                    var modal = document.getElementById("myModal");
+
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks the button, open the modal
+                    modal.style.display = "block";
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+                }
+            });
+        });
+
+
+
+
+    </script>
+</div>
+<script>
+    jQuery(document).ready(function (e) {
+        $('.txtinput').focusout(function () {
+
+            $('#tdWeight').html($('#txtweight').val());
+            $('#tdContent').html($('#txtContents').val());
+            $('#tdItemValue').html($('#itemvalue').val());
+
+        });
+    });
+</script>
+<script>
+    jQuery(document).delegate('a.add-record', 'click', function (e) {
+        e.preventDefault();
+        debugger;
+        var txtweight = $("#txtweight").val();
+
+        if (txtweight != '') {
+            var content = jQuery('#sample_table tr'),
+                size = jQuery('#tbl_posts >tbody >tr').length + 1,
+                element = null,
+                element = content.clone();
+            element.attr('id', 'rec-' + size);
+            element.find('.remove').attr('data-id', size);
+            element.appendTo('#tbl_posts_body');
+            element.find('.sn').html(size);
+        }
+        else {
+
+            debugger
+            $("#errorweight").html("This field is must required");
+            return false;
+
+        }
+    });
+</script>
+
+
+<script>
+    jQuery(document).delegate('a.remove', 'click', function (e) {
+        e.preventDefault();
+        var didConfirm = confirm("Are you sure You want to delete");
+        if (didConfirm == true) {
+            var id = jQuery(this).attr('data-id');
+            debugger
+            var targetDiv = jQuery(this).attr('targetDiv');
+          //  delDimensionsID(id);
+            jQuery('#rec-' + id).remove();
+
+            //regnerate index number on table
+            $('#tbl_posts_body tr').each(function (index) {
+                //alert(index);
+                $(this).find('span.sn').html(index + 1);
+            });
+            return true;
+        } else {
+            return false;
+        }
+    });
+</script>
+<script>
+
+
+    function delDimensionsID(ID) {
+
+     $.ajax({
+            type: "GET",
+         url: "/Configuration/DelDimensionsID",
+            data: {
+                DimensionsID: ID
+            },
+            //async: false,
+            dataType: 'json',
+            //cache: true,
+            success: function (data) {
+                if (data == "Done") {
+                    alert("Done")
+
+                    //window.location.href=  '@Url.Action("Quote", "Quote")';
+                }
+            },
+            error: function (xhr, status, error) {
+                debugger
+                var errorMessage = xhr.status + ': ' + xhr.statusText
+            },
+        });
+
+    }
+
+        function savequote() {
+        var isValid = false;
+
+
+
+
+        debugger;
+
+
+            var dimensiondata = "";
+            var rowcount = 0;
+            $("#tbl_posts tr").each(function () {
+
+                if (rowcount > 0) {
+                    var currentRow = $(this);
+
+                    var col2_value = currentRow.find("td:eq(1)").text();
+
+                    debugger
+                    dimensiondata += col2_value + ","
+                }
+                rowcount = rowcount + 1;
+                debugger;
+            });
+            $("#myModal").hide();
+
+
+            $.ajax({
+
+                type: "GET",
+                url: "/Configuration/SetOPtionQuestions",
+                data: {
+
+
+                    SetOPtionQuestions: dimensiondata
+                },
+                //async: false,
+                dataType: 'json',
+                //cache: true,
+                success: function (data) {
+                    if (data == "Done") {
+                        if (isValid == true) {
+                                window.location.href = '@Url.Action("Quote", "Quote")';
+                        }
+                    }
+                },
+                error: function (xhr, status, error) {
+                    debugger;
+                    var errorMessage = xhr.status + ': ' + xhr.statusText
+                },
+            });
+    }
+
+
+ 
+</script>
+
+

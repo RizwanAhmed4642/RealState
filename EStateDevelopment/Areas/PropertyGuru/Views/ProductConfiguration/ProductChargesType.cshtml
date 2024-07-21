@@ -1,0 +1,74 @@
+﻿@model EStateDevelopment.Data.ProductChargesType
+
+@{
+    ViewBag.Title = "ProductChargesType";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+
+            <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                <div class="card-header" style="background-color:whitesmoke">
+                    <h3>Collateral Types</h3>
+                </div>
+            </div>
+            @using (Html.BeginForm("ProductChargesType", "ProductConfiguration", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+             {
+                @Html.AntiForgeryToken()
+                <div class="col-md-12" style="background-color:white;">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+
+                                @Html.EditorFor(model => model.ChargesName, new { htmlAttributes = new { @class = "form-control", placeholder = "Charges Name" } })
+                                @Html.ValidationMessageFor(model => model.ChargesName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Start Date", id = "datetimepicker", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", placeholder = "End Date", id = "datetimepicker1", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.DropDownListFor(model => model.ChargesSlabID, (IEnumerable<SelectListItem>)ViewBag.ChargesSlabList, "------Select Charges Slab------", new { @class = "form-control form-control form-control-rounded" })
+                                @Html.ValidationMessageFor(model => model.ChargesSlabID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" style="margin-top:50px;">
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <button type="submit" value="ProductChargesType" class="btn btn-fill btn-outline-dark btn-wd" style="background-color:black;color:white">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#datetimepicker").datepicker({
+            dateFormat: "dd/MM/yy"
+        }).datepicker('setDate', new Date());
+
+        $("#datetimepicker1").datepicker({
+            dateFormat: "dd/MM/yy"
+        }).datepicker('setDate', new Date());
+    });
+</script>

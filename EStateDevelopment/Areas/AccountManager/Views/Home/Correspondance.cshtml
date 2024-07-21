@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "Correspondance";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+
+<script src="jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#table_1').DataTable();
+        $('#table_2').DataTable();
+    });
+
+   
+</script>
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+
+            <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                <div class="card-header" style="background-color:whitesmoke">
+                    <h3>Applications Details</h3>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="background-color:white;">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Lending Amount">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <select id="inputState" class="form-control">
+                                <option disabled selected>Lending Type</option>
+                                <option>Type-1</option>
+                                <option>Type-2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Product/Project Selected">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Ans of Q1">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Ans of Q2">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Ans of Q3">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Ans of Q4">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <textarea class="form-control" placeholder="Message" style="height:100px; resize:none;"></textarea>
+                        </div>
+
+                    </div>
+
+                    @*<div class="form-group">
+                            <div class="col-md-12">
+                                <div class="col-md-3 ml-auto">
+                                    <button type="submit" class="btn btn-fill btn-outline-dark btn-wd" style="background-color:black;color:white">Submit</button>
+                                </div>
+                            </div>
+                        </div>*@
+                </form>
+            </div>
+
+            <div id="line"><hr style="border: 0; clear: both; display: block; width: 96%; background-color: lightgray; height: 1px;" /></div>
+
+            <div class="col-md-12" style="background-color:white; border-style:hidden;">
+                <h4 class="text-center"><b>Correspondance Details and Logs</b></h4>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="file" class="form-control" id="inputAddress" placeholder="Browse File to Upload">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <select id="inputState" class="form-control">
+                                <option disabled selected>Contact Type</option>
+                                <option>Type-1</option>
+                                <option>Type-2</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <textarea class="form-control" placeholder="Customer Remarks" style="height:100px; resize:none;"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <select id="inputState" class="form-control">
+                                <option disabled selected>Select Application Status</option>
+                                <option>Pending</option>
+                                <option>Approved</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-3 ml-auto">
+                                <button type="submit" class="btn btn-fill btn-outline-dark btn-wd" style="background-color:black;color:white">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+
+            <div id="line"><hr style="border: 0; clear: both; display: block; width: 96%; background-color: lightgray; height: 1px;" /></div>
+            <br />
+
+            <div class="col-md-12" style="background-color:white; border-style:hidden;">
+                <table class="table" id="table_1" cellspacing="0" width="100%" style="width:100%;">
+                    <thead class="thead-light" style="background-color:whitesmoke">
+                        <tr>
+                            <th>Correspondance ID</th>
+                            <th>App ID</th>
+                            <th>Contact Type</th>
+                            <th>App Status</th>
+                            <th>Date & Time</th>
+                            <th>Customer Remarks</th>
+                            <th>View Doc</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>25</td>
+                            <td>Email</td>
+                            <td>In Process</td>
+                            <td>08-06-2021</td>
+                            <td>Redy for a Meeting</td>
+                            <th><a href="#" id="btnShow" style="color:black"><b>View</b></a></th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>25</td>
+                            <td>Email</td>
+                            <td>In Process</td>
+                            <td>08-06-2021</td>
+                            <td>Redy for a Meeting</td>
+                            <th><a href="#" id="btnShow" style="color:black"><b>View</b></a></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

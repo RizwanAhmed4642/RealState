@@ -1,0 +1,490 @@
+﻿
+@{
+    ViewBag.Title = "LendingDashboard";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+            $('#table_1').DataTable();
+            $('#table_2').DataTable();
+        $('#table_3').DataTable();
+        $('#table_4').DataTable();
+
+
+
+        //$('#xyza').dataTable({
+        //    scrollY: '50vh',
+        //    /*scrollCollapse: true,*/
+        //    paging: false
+        //});
+
+        //$('#table_id').dataTable({
+        //    scrollY: '50vh',
+        //    scrollCollapse: true,
+        //    paging: false
+        //});
+
+
+
+        //$('#abcd').dataTable({
+        //    scrollY: '50vh',
+        //    scrollCollapse: true,
+        //    paging: false
+        //});
+
+
+        ////  $('#table_id').DataTable();
+        //  $('#table_id_2').DataTable();
+
+    });
+</script>
+
+<body>
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+            <div class="card text-center" style="background-color:white;border:none;">
+                <div class="card-header" style="background-color:white">
+                    <h2>Lending Dashboard (Account Manager)</h2>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 mr-auto ml-auto">
+                    <h3>Applications Journals</h3>
+                </div>
+                <div class="col-md-12">
+
+                    
+                        <div class="card-body table-full-width">
+                            <div class="toolbar">
+                                <!--        Here you can write extra buttons/actions for the toolbar              -->
+                            </div>
+                            <div class="fresh-datatables" style="overflow-x:auto;">
+
+                                <table id="table_1" class="table" cellspacing="0" width="100%" style="width:100%;">
+
+                                    <thead class="thead-light" style="background-color:whitesmoke;font-size:small">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Lending Type</th>
+                                            <th>Lending Amount</th>
+                                            <th>Selected Project</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>View Details</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 mr-auto ml-auto">
+                    <h3>Pending Meetings</h3>
+                </div>
+                <div class="col-md-12">
+                    
+                        <div class="card-body table-full-width">
+                            <div class="toolbar">
+                                <!--        Here you can write extra buttons/actions for the toolbar              -->
+                            </div>
+                            <div class="fresh-datatables" style="overflow-x:auto;">
+                                <table id="table_2" class="table" cellspacing="0" width="100%" style="width:100%">
+                                    <thead class="thead-light" style="background-color:whitesmoke;font-size:small">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Lending Type</th>
+                                            <th>Lending Amount</th>
+                                            <th>Selected Project</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>View Details</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mr-auto ml-auto">
+                    <h4>Pending Feed Back from Investor</h4>
+                </div>
+                <div class="col-md-12">
+                   
+                        <div class="card-body table-full-width">
+                            <div class="toolbar">
+                                <!--        Here you can write extra buttons/actions for the toolbar              -->
+                            </div>
+                            <div class="fresh-datatables" style="overflow-x:auto;">
+                                <table id="table_3" class="table" cellspacing="0" width="100%" style="width:100%">
+                                    <thead class="thead-light" style="background-color:whitesmoke;font-size:small">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Lending Type</th>
+                                            <th>Lending Amount</th>
+                                            <th>Selected Project</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>View Details</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mr-auto ml-auto">
+                    <h4>Pending at Contract Drafting</h4>
+                </div>
+                <div class="col-md-12">
+                   
+                        <div class="card-body table-full-width">
+                            <div class="toolbar">
+                                <!--        Here you can write extra buttons/actions for the toolbar              -->
+                            </div>
+                            <div class="fresh-datatables" style="overflow-x:auto;">
+                                <table id="table_4" class="table" cellspacing="0" width="100%" style="width:100%">
+                                    <thead class="thead-light" style="background-color:whitesmoke;font-size:small">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Lending Type</th>
+                                            <th>Lending Amount</th>
+                                            <th>Selected Project</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>View Details</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mr. Tauseef</td>
+                                            <td>Long Term</td>
+                                            <td>5000000</td>
+                                            <td>ABC Project</td>
+                                            <td>03494922600</td>
+                                            <td>ahmedtouseef515@gmail.com</td>
+                                            <td>Select</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+

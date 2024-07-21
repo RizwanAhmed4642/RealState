@@ -1,0 +1,50 @@
+﻿@model EStateDevelopment.Data.ProductCharge
+
+@{
+    ViewBag.Title = "ProductCharges";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+
+            <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                <div class="card-header" style="background-color:whitesmoke">
+                    <h3>Product Charges</h3>
+                </div>
+            </div>
+            @using (Html.BeginForm("ProductCharges", "ProductConfiguration", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-12" style="background-color:white;">
+
+                    <div class="col-md-6 mr-auto ml-auto">
+                        @Html.DropDownListFor(model => model.ProductID, (IEnumerable<SelectListItem>)ViewBag.ProductList, "------Select Product------", new { @class = "form-control form-control form-control-rounded" })
+                        @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div class="col-md-6 mr-auto ml-auto">
+                        @Html.DropDownListFor(model => model.PChargesTypeID, (IEnumerable<SelectListItem>)ViewBag.ProductChargesTypeList, "------Select Product Charges Type------", new { @class = "form-control form-control form-control-rounded" })
+                        @Html.ValidationMessageFor(model => model.PChargesTypeID, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group" style="margin-top:50px;">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-fill btn-outline-dark btn-wd" style="background-color:black;color:white">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

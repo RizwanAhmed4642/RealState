@@ -1,0 +1,265 @@
+﻿@model EStateDevelopment.Data.ProductionModel
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none;">
+
+            <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                <div class="card-header" style="background-color:whitesmoke">
+                    <div class="row">
+                        <div class="col-md-12 adj-gridhead ">
+                            <h4>Manage New Products <small>(Property Guru)</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <p>Add your product, it will be live once administration pass approval.</p>
+                    </div>
+                    @if (TempData["response"] != null)
+                    {
+                        <div class="alert alert-danger" id="msgalert">
+                            @TempData["response"].ToString()
+                        </div>
+                    }
+                </div>
+            </div>
+
+            @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post , new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-12" style="background-color:white;">
+
+                
+                    <fieldset style=" display: block; margin-left: 2px; margin-right: 2px; padding-top: 0.35em; padding-bottom: 0.625em; padding-left: 0.75em; padding-right: 0.75em; border: 2px solid; border-color:whitesmoke;">
+                        <legend style=" width:inherit; color:black; padding: 5px 10px;">Product Details</legend>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control", placeholder = "Product Name" } })
+                                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ProductStartDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Start Date", id = "datetimepicker", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.ProductStartDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ProductEndDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Closing Date", id = "datetimepicker1", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.ProductEndDate, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.RateofReturn, new { htmlAttributes = new { @class = "form-control", placeholder = "Rate of Return %", type = "number" } })
+                                @Html.ValidationMessageFor(model => model.RateofReturn, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.DropDownListFor(model => model.AreaOfStock, (IEnumerable<SelectListItem>)ViewBag.AreaStock, "------Select Area of Stock------", new { @class = "form-control form-control form-control-rounded" })
+                                @Html.ValidationMessageFor(model => model.AreaOfStock, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.DropDownListFor(model => model.ProductTypeID, (IEnumerable<SelectListItem>)ViewBag.ProductType, "------Select Product Type------", new { @class = "form-control form-control form-control-rounded" })
+                                @Html.ValidationMessageFor(model => model.ProductTypeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.DropDownList("MinimumPeriod", new List<SelectListItem>{new SelectListItem{ Text="1-Year", Value="1-Year"},new SelectListItem{ Text="2-Years", Value="2-Years"}
+                                                         ,new SelectListItem{ Text="3-Years", Value="3-Years" },
+                                                         }, "---Select Minimum Tenure---", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MinimumPeriod, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.DropDownList("MaximumPeriod", new List<SelectListItem>{new SelectListItem{ Text="1-Year", Value="1-Year"},new SelectListItem{ Text="2-Years", Value="2-Years"}
+                                                        ,new SelectListItem{ Text="3-Years", Value="3-Years" },new SelectListItem{ Text="4-Years", Value="4-Years" },new SelectListItem{ Text="5-Years", Value="5-Years" },
+                                                        }, "---Select Maximium Tenure---", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaximumPeriod, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.TextAreaFor(model => model.ProductDescription, new { @class = "form-control", placeholder = "Product Description", style = "height:70px" })
+                                @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.TextBoxFor(m => m.ImagePath, new { type = "file", placeholder = "Upload Image" })
+                                @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger db" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <br/>
+                    <br/>
+                 
+
+
+          
+                    <fieldset style=" display: block; margin-left: 2px; margin-right: 2px; padding-top: 0.35em; padding-bottom: 0.625em; padding-left: 0.75em; padding-right: 0.75em; border: 2px solid; border-color:whitesmoke;">
+                        <legend style=" width:inherit; color:black; padding: 5px 10px; ">Collateral Details</legend>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ColletralName, new { htmlAttributes = new { @class = "form-control", placeholder = "Colletrall Name" } })
+                                @Html.ValidationMessageFor(model => model.ColletralName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ColletrallStartDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Colletrall Start Date", id = "datetimepicker3", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.ColletrallStartDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.TextAreaFor(model => model.ColleteralDetail, new { @class = "form-control", placeholder = "ColleteralDetail", style = "height:70px" })
+                                @Html.ValidationMessageFor(model => model.ColleteralDetail, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ColletrallEndDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Colletrall EndDate", id = "datetimepicker4", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.ColletrallEndDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <br/>
+                    <br/>
+                    <fieldset style=" display: block; margin-left: 2px; margin-right: 2px; padding-top: 0.35em; padding-bottom: 0.625em; padding-left: 0.75em; padding-right: 0.75em; border: 2px solid;  border-color:whitesmoke;">
+                        <legend style=" width:inherit; color:black; padding: 5px 10px;">Charges Slab</legend>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.SlabName, new { htmlAttributes = new { @class = "form-control", placeholder = "SlabName" } })
+                                @Html.ValidationMessageFor(model => model.SlabName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.MinAmount, new { htmlAttributes = new { @class = "form-control", placeholder = "Slab Minimum Amount ", type = "number" } })
+                                @Html.ValidationMessageFor(model => model.MinAmount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.MaxAmount, new { htmlAttributes = new { @class = "form-control", placeholder = "Slab Maximum Amount ", type = "number" } })
+                                @Html.ValidationMessageFor(model => model.MaxAmount, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ChargesAmount, new { htmlAttributes = new { @class = "form-control", placeholder = "Slab Charges Amount ", type = "number" } })
+                                @Html.ValidationMessageFor(model => model.ChargesAmount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <br/>
+                    <br/>
+                    <fieldset style=" display: block; margin-left: 2px; margin-right: 2px; padding-top: 0.35em; padding-bottom: 0.625em; padding-left: 0.75em; padding-right: 0.75em; border: 2px solid;  border-color:whitesmoke;">
+                        <legend style=" width:inherit; color:black; padding: 5px 10px;">Product Charges </legend>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ChargesName, new { htmlAttributes = new { @class = "form-control", placeholder = "Charges Name" } })
+                                @Html.ValidationMessageFor(model => model.ChargesName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ChargesStartDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Charges Start Date", id = "datetimepicker5", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.ChargesStartDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.ChargesEndDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Charges End Date", id = "datetimepicker6", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.ChargesEndDate, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+
+                            </div>
+                        </div>
+                       
+                    </fieldset>
+                    <br/>
+                    <br/>
+
+                    <fieldset style=" display: block; margin-left: 2px; margin-right: 2px; padding-top: 0.35em; padding-bottom: 0.625em; padding-left: 0.75em; padding-right: 0.75em; border: 2px solid; border-color:whitesmoke;">
+                        <legend style=" width:inherit; color:black; padding: 5px 10px;">Product Interest Rate Slab </legend>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.IntrestRate, new { htmlAttributes = new { @class = "form-control", placeholder = "IntrestRate %", type = "number" } })
+                                @Html.ValidationMessageFor(model => model.IntrestRate, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.Tenor, new { htmlAttributes = new { @class = "form-control", placeholder = "Tenor in years", type = "number" } })
+                                @Html.ValidationMessageFor(model => model.Tenor, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group" style="margin-top:20px;">
+                            <div class="text-center">
+                                <div class="col-md-12">
+                                    <button type="submit" value="AddProduct" class="btn btn-fill btn-outline-dark btn-wd fr" style="background-color:black">Submit</button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+             }
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#datetimepicker").datepicker({
+            dateFormat: "dd/MM/yy"
+        })/*.datepicker('setDate', new Date());*/
+
+        $("#datetimepicker1").datepicker({
+            dateFormat: "dd/MM/yy"
+        })/*.datepicker('setDate', new Date());*/
+
+        $("#datetimepicker2").datepicker({
+            dateFormat: "dd/MM/yy"
+        })/*.datepicker('setDate', new Date());*/
+
+        $("#datetimepicker3").datepicker({
+            dateFormat: "dd/MM/yy"
+        })/*.datepicker('setDate', new Date());*/
+
+        $("#datetimepicker4").datepicker({
+            dateFormat: "dd/MM/yy"
+        })/*.datepicker('setDate', new Date());*/
+
+        $("#datetimepicker5").datepicker({
+            dateFormat: "dd/MM/yy"
+        })/*.datepicker('setDate', new Date());*/
+
+        $("#datetimepicker6").datepicker({
+            dateFormat: "dd/MM/yy"
+        })/*.datepicker('setDate', new Date());*/
+
+        $("#datetimepicker7").datepicker({
+            dateFormat: "dd/MM/yy"
+        })/*.datepicker('setDate', new Date());*/
+
+        $("#datetimepicker8").datepicker({
+            dateFormat: "dd/MM/yy"
+        }).datepicker('setDate', new Date());
+
+        $("#datetimepicker9").datepicker({
+            dateFormat: "dd/MM/yy"
+        }).datepicker('setDate', new Date());
+    });
+</script>
+

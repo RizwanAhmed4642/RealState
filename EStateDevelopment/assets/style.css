@@ -1,0 +1,322 @@
+
+
+.close-nav{
+	margin: 1rem 0  0 15rem;
+}
+
+@media screen and (min-width: 850px){
+	.mobile_nav{
+		display: none;
+	}
+}
+
+.top-bar{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	background: rgb(94,0,127);
+background: linear-gradient(90deg, rgba(94,0,127,1) 0%, rgba(51,0,101,1) 100%);
+	color: white;
+	height: 3rem;
+}
+
+.db {
+	display: block !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.my-carousel{
+	margin-top: -1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.my-carousel{
+		margin-top: 0;
+	}
+
+
+
+
+/* 
+.bbb_viewed_content {
+	width: 100%;
+	margin-top: 25px
+}
+
+.bbb_viewed_price {
+	font-size: 16px;
+	color: #000000;
+	font-weight: 500
+}
+
+.bbb_viewed_item.discount .bbb_viewed_price {
+	color: #df3b3b
+}
+
+.bbb_viewed_price span {
+	position: relative;
+	font-size: 12px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.6);
+	margin-left: 8px
+}
+
+.bbb_viewed_price span::after {
+	display: block;
+	position: absolute;
+	top: 6px;
+	left: -2px;
+	width: calc(100% + 4px);
+	height: 1px;
+	background: #8d8d8d;
+	content: ''
+}
+
+.bbb_viewed_name {
+	margin-top: 3px
+}
+
+.bbb_viewed_name a {
+	font-size: 14px;
+	color: #000000;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease
+}
+
+.bbb_viewed_name a:hover {
+	color: #0e8ce4
+}
+
+.item_marks {
+	position: absolute;
+	top: 18px;
+	left: 18px
+}
+
+.item_mark {
+	display: none;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: 500;
+	line-height: 36px;
+	text-align: center
+}
+
+.item_discount {
+	background: #df3b3b;
+	margin-right: 5px
+}
+
+.item_new {
+	background: #0e8ce4
+}
+
+.bbb_viewed_item.discount .item_discount {
+	display: inline-block
+}
+
+.bbb_viewed_item.is_new .item_new {
+	display: inline-block
+} */
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+.centeredAbout {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+	position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+	display: none;
+}
+.mySlides1 {
+	display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+	cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+	cursor: pointer;
+	position: absolute;
+	top: 40%;
+	width: auto;
+	padding: 16px;
+	margin-top: -50px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover,
+	.next:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+/* Number text (1/3 etc) */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+	text-align: center;
+	background-color: #222;
+	padding: 2px 16px;
+	color: white;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+/* Six columns side by side */
+.column {
+	float: left;
+	width: 25%;
+	margin: 5px;
+	border: 1px solid Orange
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+	opacity: 0.6;
+}
+.demo1 {
+	opacity: 0.6;
+}
+	.active,
+	.demo:hover {
+		opacity: 1;
+	}
+.active,
+.demo1:hover {
+	opacity: 1;
+}
+
+.productpedding {
+	margin:10px;
+	margin-top: 15px;
+}
+@media screen and (max-width:768px)
+{
+	.productpedding {
+		margin-left: 30px;
+		margin-top:15px;
+	}
+	.rowtinyslider
+	{
+		margin:0 auto !important;
+	}
+}
+.rowtinyslider {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -45px;
+	margin-left: 105px;
+}
+
+#icons {
+	padding: .5em;
+	line-height: 2.7;
+	-webkit-columns: 150px 2;
+	font-size: 1.2em;
+}
+ul {
+	justify-content: left;
+
+}
+.centers {
+	margin: auto;
+	width: 50%;
+	
+	padding: 10px;
+}
+ul li {
+	
+	color: white;
+}

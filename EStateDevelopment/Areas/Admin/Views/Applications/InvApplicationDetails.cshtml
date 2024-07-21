@@ -1,0 +1,191 @@
+﻿@model EStateDevelopment.Data.Product
+@{
+    ViewBag.Title = "InvApplicationDetails";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<section id="contact" class="section-bg wow fadeInUp">
+    <div class="container">
+        <div class="section-header">
+            <h3>Investor Applications Details</h3>
+            <br />
+        </div>
+        <div class="form col-md-12">
+            <div class="container">
+                @if (Model.InvestorApplications.ElementAt(0).ApprovalStatus == false && Model.InvestorApplications.ElementAt(0).RejectedStatus == false)
+                {
+                    <div class="row">
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Product Name
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).ApplicationNumber)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.InvestorApplications.ElementAt(0).ApplicationNumber)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).FullName)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.InvestorApplications.ElementAt(0).FullName)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).Email)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.InvestorApplications.ElementAt(0).Email)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).Phone)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.InvestorApplications.ElementAt(0).Phone)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).CompleteAddress)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.InvestorApplications.ElementAt(0).CompleteAddress)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).State)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.InvestorApplications.ElementAt(0).State)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.ApprovalStatus)
+                                </dt>
+
+                                <dd>
+
+                                    @if (Model.InvestorApplications.ElementAt(0).ApprovalStatus == false && Model.InvestorApplications.ElementAt(0).RejectedStatus == false)
+                                    {
+                                        <p>Pending</p>
+                                    }
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).ZipCode)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.InvestorApplications.ElementAt(0).ZipCode)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).City)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.InvestorApplications.ElementAt(0).City)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-4">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.ProductType)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ProductType)
+                                </dd>
+                            </dl>
+                        </div>
+                        @*<div class="col">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount)
+                        </dd>
+                    </dl>
+                </div>*@
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <a class="btn btn-success" title="Approve" href="@Url.Action("ApproveInvapp", "Applications", new { id = Model.InvestorApplications.ElementAt(0).InvestorApplicationID })">Approve</a>
+                        </div>
+
+                        <div class="col-md-4">
+                        </div>
+
+                        <div class="col-md-4">
+                            <a class="btn btn-danger" title="Reject" href="@Url.Action("RejectInvapp", "Applications", new { id = Model.InvestorApplications.ElementAt(0).InvestorApplicationID })">Reject</a>
+                        </div>
+                    </div>
+
+
+                 }
+
+            </div>
+            <br/>
+            <p>
+                @Html.ActionLink("Back to List", "Configuration")
+            </p>
+        </div>
+    </div>
+
+
+</section>
+

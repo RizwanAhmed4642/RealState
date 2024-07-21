@@ -1,0 +1,206 @@
+﻿@model EStateDevelopment.Data.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+<section id="contact" class="section-bg wow fadeInUp">
+    <div class="container">
+        <div class="section-header">
+            <div class="col-md-12 adj-gridhead ">
+                <h4>Product Detail <small>(Administrator)</small></h4>
+            </div>
+            <br />
+        </div>
+        <div class="form col-md-12">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Description)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </dt>
+
+                            <dd>
+                                @Html.FormatValue("dd/MM/yyyy", Model.CreatedDate?.ToString("dd/MM/yyyy"))
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ProductType)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ProductType)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.StartDate)
+                            </dt>
+
+                            <dd>
+                                @Html.FormatValue("dd/MM/yyyy", Model.StartDate?.ToString("dd/MM/yyyy"))
+
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.EndDate)
+                            </dt>
+
+                            <dd>
+                                @Html.FormatValue("dd/MM/yyyy", Model.EndDate?.ToString("dd/MM/yyyy"))
+
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.PublishedDate)
+                            </dt>
+
+                            <dd>
+                                @if (Model.PublishedDate == null)
+                                {
+                                    <span>Not Published yet</span>
+                                }
+                                else
+                                {
+                                    @Html.FormatValue("dd/MM/yyyy", Model.PublishedDate?.ToString("dd/MM/yyyy"))
+
+                                }
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ApprovalStatus)
+                            </dt>
+
+                            <dd>
+
+                                @if (Model.ApprovalStatus == false)
+                                {
+                                    <p>Pending</p>
+                                }
+                                else if (Model.ApprovalStatus == true)
+                                {
+                                    <p>Approved</p>
+                                }
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.UserEmail)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.UserEmail)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.RateofReturn)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.RateofReturn)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ProductType)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ProductType)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            @if (Model.ProductCharges != null && Model.ProductCharges.Count() > 0)
+                            {
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount)
+                                </dd>
+                            }
+                            else
+                            {
+                                <td>
+                                    @Html.DisplayNameFor(model => model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount)
+
+                                </td>
+                                <dd>
+                                    <span>Not Declaired</span>
+                                </dd>
+                            }
+                        </dl>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.AspNetUsers.ElementAt(0).phone)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.AspNetUsers.ElementAt(0).phone)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#table_1').DataTable();
+        $('#table_2').DataTable();
+        $('#table_3').DataTable();
+    });
+</script>
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+
+            <div class="text-center">
+                <h2>Dashboard (Credit Committe)</h2>
+            </div>
+            <div class="col-md-12" style="background-color:white; border-style:hidden;">
+                <div class="text-center">
+                    <h4>Short Payment</h4>
+                </div>
+                <table id="table_1" class="table table-bordered" cellspacing="0" width="100%" style="width:100%;">
+                    <thead class="thead-light" style="background-color:whitesmoke">
+                        <tr>
+                            <th scope="col">Customer ID</th>
+                            <th scope="col">Contract ID</th>
+                            <th scope="col">Rate of Return</th>
+                            <th scope="col">Period</th>
+                            <th scope="col">LoanAmount</th>
+                            <th scope="col">Installment</th>
+                            <th scope="col">Month of</th>
+                            <th scope="col">Missed Payment</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Over due days</th>
+                            <th scope="col">View 360</th>
+                            <th scope="col">Contract</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>25</td>
+                            <td>3%</td>
+                            <td>2</td>
+                            <td>25000</td>
+                            <td>1075.353</td>
+                            <td>May</td>
+                            <td>1075.353</td>
+                            <td>08-06-2021</td>
+                            <td>30</td>
+                            <th>Select</th>
+                            <th>Select</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br/>
+
+            <div class="col-md-12" style="background-color:white; border-style:hidden;">
+                <div class="text-center">
+                    <h4>Missed Payment</h4>
+                </div>
+                <table id="table_2" class="table table-bordered" cellspacing="0" width="100%" style="width:100%;">
+                    <thead class="thead-light" style="background-color:whitesmoke">
+                        <tr>
+                            <th scope="col">Customer ID</th>
+                            <th scope="col">Contract ID</th>
+                            <th scope="col">Rate of Return</th>
+                            <th scope="col">Period</th>
+                            <th scope="col">LoanAmount</th>
+                            <th scope="col">Installment</th>
+                            <th scope="col">Month of</th>
+                            <th scope="col">Missed Payment</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Over due days</th>
+                            <th scope="col">View 360</th>
+                            <th scope="col">Contract</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>25</td>
+                            <td>3%</td>
+                            <td>2</td>
+                            <td>25000</td>
+                            <td>1075.353</td>
+                            <td>May</td>
+                            <td>1075.353</td>
+                            <td>08-06-2021</td>
+                            <td>30</td>
+                            <th>Select</th>
+                            <th>Select</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br/>
+
+            <div class="col-md-12" style="background-color:white; border-style:hidden;">
+                <div class="text-center">
+                    <h4>Cases in line to check Progress</h4>
+                </div>
+                <table id="table_3" class="table table-bordered" cellspacing="0" width="100%" style="width:100%;">
+                    <thead class="thead-light" style="background-color:whitesmoke">
+                        <tr>
+                            <th scope="col">Customer ID</th>
+                            <th scope="col">Contract ID</th>
+                            <th scope="col">Rate of Return</th>
+                            <th scope="col">Period</th>
+                            <th scope="col">LoanAmount</th>
+                            <th scope="col">Installment</th>
+                            <th scope="col">Month of</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">TakeUp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>25</td>
+                            <td>3%</td>
+                            <td>2</td>
+                            <td>25000</td>
+                            <td>1075.353</td>
+                            <td>May</td>
+                            <td>08-06-2021</td>
+                            <th>Select</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

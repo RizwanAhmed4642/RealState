@@ -1,0 +1,206 @@
+﻿@model IEnumerable<EStateDevelopment.Data.Product>
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+
+<script src="jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#table_1').DataTable();
+        $('#table_2').DataTable();
+        $('#table_3').DataTable();
+    });
+
+</script>
+
+<body>
+    <div class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12 mr-auto ml-auto">
+                    <div class="row">
+                        <div class="col-md-12 adj-gridhead ">
+                            <h4>Pending Approval for New Projects <small>(Property Guru)</small></h4>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <div class="card data-tables">
+                            <div class="card-body table-full-width">
+                                <div class="toolbar">
+                                    <!--        Here you can write extra buttons/actions for the toolbar              -->
+                                </div>
+                                <div class="fresh-datatables">
+                                    <table id="table_1" class="table" cellspacing="0" width="100%" style="width:100%">
+                                        <thead class="thead-light" style="background-color:whitesmoke;font-size:small">
+                                            <tr>
+                                                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                                <th>@Html.DisplayNameFor(model => model.ProductType)</th>
+                                                <th>@Html.DisplayNameFor(model => model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount)</th>
+                                                <th>@Html.DisplayNameFor(model => model.RateofReturn)</th>
+                                                <th>@Html.DisplayNameFor(model => model.AspNetUsers.ElementAt(0).phone)</th>
+                                                <th>@Html.DisplayNameFor(model => model.UserEmail)</th>
+                                                <th>View Details</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var P in Model)
+                                            {
+                                                if (P.ApprovalStatus == false && P.RejectedStatus == false)
+                                                {
+                                            <tr>
+                                                <td>@P.Name</td>
+                                                <td>@P.ProductType</td>
+                                                @if (P.ProductCharges != null && P.ProductCharges.Count() > 0)
+                                                {
+                                                    <td>@P.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>Not Declaired</td>
+                                                }
+                                                <td>@P.RateofReturn</td>
+                                                <td>@P.AspNetUsers.ElementAt(0).phone</td>
+                                                <td>@P.UserEmail</td>
+                                                <th>@Html.ActionLink("View", "Details", new { id = P.ProductID })</th>
+                                            </tr>
+                                                }
+
+                                             }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-12 mr-auto ml-auto">
+                    <div class="row">
+                        <div class="col-md-5 adj-gridhead ">
+                            <h4>Live Project Logs <small>(Property Guru)</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card data-tables">
+                        <div class="card-body">
+                            <div class="toolbar">
+                            </div>
+
+
+                            <table id="table_2" class="table" cellspacing="0" width="100%" style="width:100%">
+                                <thead class="thead-light " style="background-color:whitesmoke ;font-size:small">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                        <th>@Html.DisplayNameFor(model => model.ProductType)</th>
+                                        <th>@Html.DisplayNameFor(model => model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount)</th>
+                                        <th>@Html.DisplayNameFor(model => model.RateofReturn)</th>
+                                        <th>@Html.DisplayNameFor(model => model.AspNetUsers.ElementAt(0).phone)</th>
+                                        <th>@Html.DisplayNameFor(model => model.UserEmail)</th>
+                                        <th>View Details</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody overflow: auto">
+                                    @foreach (var P in Model)
+                                    {
+                                        if (P.ApprovalStatus == true && P.RejectedStatus == false)
+                                        {
+                                    <tr>
+                                        <td>@P.Name</td>
+                                        <td>@P.ProductType</td>
+                                        @if (P.ProductCharges != null && P.ProductCharges.Count() > 0)
+                                        {
+                                            <td>@P.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount</td>
+                                        }
+                                        else
+                                        {
+                                            <td>Not Declaired</td>
+                                        }
+                                        <td>@P.RateofReturn</td>
+                                        <td>@P.AspNetUsers.ElementAt(0).phone</td>
+                                        <td>@P.UserEmail</td>
+                                        <th>@Html.ActionLink("View", "Details", new { id = P.ProductID })</th>
+                                    </tr>
+                                        }
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-12 mr-auto ml-auto">
+                    <div class="row">
+                        <div class="col-md-12 adj-gridhead ">
+                            <h4>Applications Against Projects <small>(Property Guru)</small></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card data-tables">
+                        <div class="card-body">
+                            <div class="toolbar">
+                            </div>
+                            <table id="table_3" class="table" cellspacing="0" width="100%" style="width:100%">
+                                <thead font-size:small style="background-color:whitesmoke;font-size:small">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.ApplicationModels.ElementAt(0).Name);</th>
+                                        <th>@Html.DisplayNameFor(model => model.ApplicationModels.ElementAt(0).ApplicationID)</th>
+                                        <th>@Html.DisplayNameFor(model => model.ApplicationModels.ElementAt(0).ProductName)</th>
+                                        <th>@Html.DisplayNameFor(model => model.ApplicationModels.ElementAt(0).personType)</th>
+                                        <th>@Html.DisplayNameFor(model => model.ApplicationModels.ElementAt(0).RateofReturn)</th>
+                                        <th>@Html.DisplayNameFor(model => model.ApplicationModels.ElementAt(0).Phone)</th>
+                                        <th>@Html.DisplayNameFor(model => model.ApplicationModels.ElementAt(0).Email)</th>
+                                        <th>View Details</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody @*style="height: 100px;*@ overflow: auto">
+
+                                    @foreach (var P in Model)
+                                     {
+                                        for (int i =0; i< P.ApplicationModels.Count(); i++)
+                                        {
+                                            <tr>
+                                                <td>@P.ApplicationModels.ElementAt(i).Name</td>
+                                                <td>@P.ApplicationModels.ElementAt(i).ApplicationID</td>
+                                                <td>@P.ApplicationModels.ElementAt(i).ProductName</td>
+                                                <td>@P.ApplicationModels.ElementAt(i).personType</td>
+                                                <td>@P.ApplicationModels.ElementAt(i).RateofReturn</td>
+                                                <td>@P.ApplicationModels.ElementAt(i).Phone</td>
+                                                <td>@P.ApplicationModels.ElementAt(i).Email</td>
+                                                <th>@Html.ActionLink("View", "ApplicationDetails", new { id = P.ApplicationModels.ElementAt(i).ProductID, appID=P.ApplicationModels.ElementAt(i).ApplicationID, appnumber = P.ApplicationModels.ElementAt(i).ApplicationNumber })</th>
+                                            </tr>
+                                        }
+                                     }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="jquery.scrollable.js"></script>
+</body>
+

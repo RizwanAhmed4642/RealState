@@ -1,0 +1,437 @@
+﻿@model EStateDevelopment.Data.InvestorQualification
+
+<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<link href="~/assets/css/jquery-ui.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<html style="background-color: #f5f5f500;">
+<body style="background-color: #f5f5f500;">
+    <div class="container"  style="width:auto;height:auto;">
+        @if (Model.ProcessStatus == "complete")
+        {
+            <div class="col-md-12">
+                <div class="text-center" style="margin-top:100px;">
+                    <h3>Investor Qualification Form</h3>
+                </div>
+                <div class="text-center" style="margin-top:100px;">
+                    @if (TempData["response"] != null)
+                    {
+                        <div class="alert alert-danger" id="msgalert">
+                            @TempData["response"].ToString()
+                        </div>
+                    }
+                </div>
+            </div>
+            using (Html.BeginForm("updateInvQualification", "Investor", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(model => model.ID)
+                @Html.HiddenFor(model => model.InvestorID)
+                @Html.HiddenFor(model => model.ProcessStatus)
+
+
+
+                @Html.AntiForgeryToken()
+                <div class="row" style="margin-left:100px;margin-right:100px; margin-top:20px; ">
+                    <div class="col-md-12">
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6" style="line-height:13px;">
+                                    <p>To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Russ Hiner</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>From:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500 ;" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                            @*<input type="text" id="From" style="outline: 0; border-width: 0 0 2px; border-color: black" />*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="line-height:13px;">
+                                    <p>Company: Hedge Equity,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LLC</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Adress:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                            @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                                            @*<input type="text" id="From" style="outline: 0; border-width: 0 0 2px; border-color: black" />*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="line-height:13px;">
+                                    <p>Phone: 404-377-1718</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Phone:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", type = "Number", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                            @*<input type="text" id="From" style="outline: 0; border-width: 0 0 2px; border-color: black" />*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="line-height:13px;">
+                                    <p>Fax: 404-377-1718</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Fax:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                            @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
+                                            @*<input type="text" id="From" style="outline: 0; border-width: 0 0 2px; border-color: black" />*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" style="line-height:13px;">
+                                    <p>Email: Russ@HedgeEquity.net</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Email:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", type = "email", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            @*<input type="text" id="From" style="outline: 0; border-width: 0 0 2px; border-color: black" />*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="text-center" style="margin-top:25px;">
+                            <p style="text-align:justify">
+                                <b>
+                                    I am interested in exploring real-estate opportunities. I understand I must meet the following requirements for income (Section A) or net worth (Section B); and I have significant investment, business, and/or financial expertise (Section C).
+                                </b>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div style="margin-top:15px; text-align:center">
+                            <p style="text-align:justify">
+                                (INSTRUCTIONS): Please read Sections A through C below and check the box next to each section only if you meet the stated requirements for each section. Additionally, please provide description of previous relationship in Section D.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div style="margin-top:15px;">
+                            <h4><b>A. Income</b></h4>
+                        </div>
+                        <p style="text-align:justify">
+                            My annual income was at least $200,000 in each of the last two years, or my joint income with my spouse was in excess of $300,000 in each of those years, and I have reasonable expectation of the same level of income for the immediate future.
+                        </p>
+                        <div class="form-inline">
+                            @Html.RadioButtonFor(model => model.Income, "true")Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.RadioButtonFor(model => model.Income, "false")No
+                            @Html.ValidationMessageFor(model => model.Income, "", new { @class = "text-danger" })
+                            @*<input name="check1" type="radio" style="outline: 0; border-width: 0 0 2px; border-color: black" />
+                                <label for="html">Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input name="check1" type="radio" style="outline: 0; border-width: 0 0 2px; border-color: black" />
+                                <label for="html">No</label><br>*@
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div style="margin-top:15px;">
+                            <h4><b>B. Net Worth</b></h4>
+                        </div>
+                        <p style="text-align:justify">
+                            My current individual net worth or joint net worth with that of my spouse, exceeds One Million Dollars ($1,000,000), disregarding any positive equity in my personal residence. (Note, however, that negative equity with respect to a personal residence should also be included in this calculation.)
+                        </p>
+                        <div class="form-inline">
+                            @Html.RadioButtonFor(model => model.NetWorth, "true")Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.RadioButtonFor(model => model.NetWorth, "false")No
+                            @Html.ValidationMessageFor(model => model.NetWorth, "", new { @class = "text-danger" })
+                            @*<input name="check" type="radio" style="outline: 0; border-width: 0 0 2px; border-color: black" />
+                                <label for="html">Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input name="check" type="radio" style="outline: 0; border-width: 0 0 2px; border-color: black" />
+                                <label for="html">No</label><br>*@
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div style="margin-top:15px;">
+                            <h4><b>C.Business, Financial, and Investment Experience and Expertise</b></h4>
+                        </div>
+                        <p style="text-align:justify; margin-top:25px;">
+                            I am an experienced investor as demonstrated by my investment, business, and/or financial background information listed below:
+                        </p>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Occupation/profession</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.Occupation, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Business/financial Experience&nbsp;</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.BusinessorFinancialExperience, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.BusinessorFinancialExperience, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Degrees and designations</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.DegreeandDesignations, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.DegreeandDesignations, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Current Realestate Investments No of Properties</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.CurrentNoOfProperties, new { htmlAttributes = new { @class = "form-control", type = "Number", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.CurrentNoOfProperties, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Current RealEstate Investments Types of Properties</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.CurrentTypesOfProperties, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.CurrentTypesOfProperties, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Prior real estate investments No of Properties:</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.PriorNoOfProperties, new { htmlAttributes = new { @class = "form-control", type = "Number", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black;width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.PriorTypesOfProperties, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Prior real estate investments Types of Properties:</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.PriorTypesOfProperties, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.PriorTypesOfProperties, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Real Estate Investments Experience</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.RealEstateExperience, new { htmlAttributes = new { @class = "form-control", type = "Number", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.RealEstateExperience, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Real Estate Investments Value</p>
+                            </div>
+                            <div class="col-md-6" style="overflow-x:hidden; overflow:hidden">
+                                @Html.EditorFor(model => model.InvestmentValue, new { htmlAttributes = new { @class = "form-control", type = "Number", @style = "padding:0; outline:0;min-width:400px; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.InvestmentValue, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <!--<div class="row">
+                        <div class="col-md-6">
+                            <div class="card-body" style="line-height:12px;">
+
+
+
+
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">-->
+                        @*<input type="text" style="min-width:400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />*@
+                        @*<input type="text" style="min-width: 400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />
+                            <input type="text" style="min-width: 400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />
+                            <input type="text" style="min-width: 400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />
+                            <input type="text" style="min-width: 400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />
+                            <input type="text" style="min-width: 400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />
+                            <input type="text" style="min-width: 400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />
+                            <input type="text" style="min-width: 400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />
+                            <input type="text" style="min-width: 400px; outline: 0; border-width: 0 0 2px; border-color: black" ; min-height="10px" />*@
+                        <!--</div>
+
+                        </div>-->
+
+                    </div>
+                    <div class="col-md-12">
+                        <div style="margin-top:15px;">
+                            <h4><b>D. Previous Relationship</b></h4>
+                        </div>
+
+
+                        <div class="col-md-12" style="margin-top:10px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>My previous business</p>
+                                </div>
+                                <div class="col-md-6" style="overflow-x:hidden;">
+                                    @Html.EditorFor(model => model.PreviousBusiness, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                    @Html.ValidationMessageFor(model => model.PreviousBusiness, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>Relationship with</p>
+                                </div>
+                                <div class="col-md-6" style="overflow-x:hidden;">
+                                    @Html.EditorFor(model => model.RelationshipWith, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                    @Html.ValidationMessageFor(model => model.RelationshipWith, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>Members (s) of</p>
+                                </div>
+                                <div class="col-md-6" style="overflow-x:hidden;">
+                                    @Html.EditorFor(model => model.Memberof, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                    @Html.ValidationMessageFor(model => model.Memberof, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>Homebuyers of GA , LLC </p>
+                                </div>
+                                <div class="col-md-6" style="overflow-x:hidden;">
+                                    @Html.EditorFor(model => model.HomebuyersofGA, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 150px; background-color: #f5f5f500;" } })
+                                    @Html.ValidationMessageFor(model => model.HomebuyersofGA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <p style="text-align:justify; margin-top:25px; font-style:italic; line-height:initial">
+                                THIS IS NOT AN OFFER TO SELL OR SOLICITATION OF AN OFFER TO PURCHASE AN INVESTMENT OR SECURITY. THIS INFORMATION RELATES TO POSSIBLE REAL ESTATE OPPORTUNITIES FOR QUALIFIED PURCHASERS WHO HAVE ESTABLISHED AN EXISTING SUBSTANTIVE RELATIONSHIP WITH MEMBER(S) OF HOMEBUYERS OF GEORGIA, LLC. INTERESTER PERSONS MAY QUALIFY AS INVESTORS BY VIRTUE OF A PRE-EXISTING RELATIONSHIP AND PROOF OF BUSINESS EXPERIENCE, INCOME, AND NET WORTH.
+                            </p>
+
+                            <p style="text-align:justify; margin-top:25px; line-height:initial">
+                                I/we hereby certify the above is true and correct
+                            </p>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="text-center" style="margin-top:50px; overflow-x:hidden">
+                            <div class="form-inline">
+                                <label>Signature&nbsp;</label>
+                                @Html.EditorFor(model => model.Signature, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "max-width:100px;padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 100px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.Signature, "", new { @class = "text-danger" })
+
+                                <label>Date&nbsp;</label>
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { id = "datepicker", @style = "max-width:100px;padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 100px; background-color: #f5f5f500; ", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+
+                                <label>Signature&nbsp;</label>
+                                @Html.EditorFor(model => model.ConfirmSignature, new { htmlAttributes = new { @class = "form-control", type = "text", @style = "max-width:220px;padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black;width: 150px; background-color: #f5f5f500;" } })
+                                @Html.ValidationMessageFor(model => model.Signature, "", new { @class = "text-danger" })
+
+                                <label>Date&nbsp;</label>
+                                @Html.EditorFor(model => model.ConfirmDate, new { htmlAttributes = new { id = "datepicker1", @style = "max-width:100px;padding:0; outline:0; border-width:0 0 2px 0; border-radius:0; border-color: black; width: 100px; background-color: #f5f5f500;", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.ConfirmDate, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div style="margin-top:50px; font-style:italic; font-size:15px;">
+                            <p><b>Fax completed and signed for to 888-552-6620 If you have questions, please call Russ at 404-377-1718 or visit www. HedgeEquity.net</b></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="margin-top:20px;">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-fill btn-outline-dark btn-wd fr" style="background-color:black; color:white">Update</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <script>
+                    $(document).ready(function () {
+                        $("#datepicker").datepicker({
+                            dateFormat: "dd-mm-yy",
+                            changemonth: true,
+                            changeyear: true
+                        });
+
+                        $("#datepicker1").datepicker({
+                            dateFormat: "dd-mm-yy",
+                            changemonth: true,
+                            changeyear: true
+                        });
+                    });
+                </script>
+            }
+
+        }
+        else
+        {
+            <div class="col-md-12">
+
+                <div class="align-content-center" style="margin-top:100px; background-color: #f7f7f8;">
+                    <div class="alert alert-danger" id="msgalert">
+                        <div class="text-center">
+                            <p>OOPS....! You didn't Fill the Application Form Yet</p>
+                            <p>Please Fill the Qualification Form....</p>
+                            <a href="@Url.Action("InvQualification", "Investor", new { area = "Investors" })"><p>Click Here</p></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+﻿@model EStateDevelopment.Areas.Investors.ViewModel.QuestionViewModel
+@{
+    ViewBag.Title = "AddQuestion";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-6">
+            @using (Html.BeginForm("AddQuestion", "Investor", FormMethod.Post))
+            {<div class="card ">
+                    <div class="card-header ">
+                        <div class="card-header">
+                            <h4 class="card-title t-from-r">Investor Question</h4>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+
+                            <div class="col-md-12  col-sm-6 px-1">
+                                <div class="form-group">
+                                    <label>Qestion 1</label>
+                                    @Html.EditorFor(model => model.Question1, new { htmlAttributes = new { @class = "form-control", placeholder = "Qestion 1", } })
+                                    @Html.ValidationMessageFor(model => model.Question1, "", new { @class = "text-danger db" })
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12  col-sm-6 px-1">
+                                <div class="form-group">
+                                    <label>Qestion 2</label>
+                                    @Html.EditorFor(model => model.Question2, new { htmlAttributes = new { @class = "form-control", placeholder = "Qestion 2", } })
+                                    @Html.ValidationMessageFor(model => model.Question2, "", new { @class = "text-danger db" })
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12  col-sm-6 px-1">
+                                <div class="form-group">
+                                    <label>Qestion 3</label>
+                                    @Html.EditorFor(model => model.Question3, new { htmlAttributes = new { @class = "form-control", placeholder = "Qestion 3", } })
+                                    @Html.ValidationMessageFor(model => model.Question3, "", new { @class = "text-danger db" })
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12  col-sm-6 px-1">
+                                <div class="form-group">
+                                    <label>Qestion 4</label>
+                                    @Html.EditorFor(model => model.Question4, new { htmlAttributes = new { @class = "form-control", placeholder = "Qestion 4", } })
+                                    @Html.ValidationMessageFor(model => model.Question4, "", new { @class = "text-danger db" })
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Update</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<EStateDevelopment.Data.Product>
+
+@{
+    ViewBag.Title = "InvestorApplications";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#table_1').DataTable();
+        $('#table_2').DataTable();
+        $('#table_3').DataTable();
+    });
+
+</script>
+
+<body>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mr-auto ml-auto">
+                    <div class="row">
+                        <div class="col-md-12 adj-gridhead ">
+                            <h4>Applications Against Projects <small>(Investors)</small></h4>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-md-12">
+            <div class="card data-tables">
+                    <div class="card-body">
+                        <div class="toolbar">
+                        </div>
+                        <table id="table_3" class="table" cellspacing="0" width="100%" style="width:100%">
+                            <thead font-size:small style="background-color:whitesmoke;font-size:small">
+                                <tr>
+                                    <th>ProductName</th>
+                                    <th>@Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).InvestorApplicationID)</th>
+                                    <th>@Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).ApplicationNumber)</th>
+                                    <th>@Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).FullName)</th>
+                                    <th>@Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).Email)</th>
+                                    <th>@Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).Mobile)</th>
+                                    <th>@Html.DisplayNameFor(model => model.InvestorApplications.ElementAt(0).State)</th>
+                                    <th>View Details</th>
+                                </tr>
+                            </thead>
+
+                            <tbody @*style="height: 100px;*@ overflow: auto">
+
+                                @foreach (var P in Model)
+                                {
+                                    for (int i = 0; i < P.InvestorApplications.Count(); i++)
+                                    {
+                                        if (P.InvestorApplications.ElementAt(i).ApprovalStatus == null && P.InvestorApplications.ElementAt(i).RejectedStatus == null)
+                                        {
+                                            <tr>
+                                                <td>@P.Name</td>
+                                                <td>@P.InvestorApplications.ElementAt(i).InvestorApplicationID</td>
+                                                <td>@P.InvestorApplications.ElementAt(i).ApplicationNumber</td>
+                                                <td>@P.InvestorApplications.ElementAt(i).FullName</td>
+                                                <td>@P.InvestorApplications.ElementAt(i).Email</td>
+                                                <td>@P.InvestorApplications.ElementAt(i).Mobile</td>
+                                                <td>@P.InvestorApplications.ElementAt(i).State</td>
+                                                <th>
+                                                    <a href="@Url.Action("ApproveInvapp", "Applications", new { id = P.InvestorApplications.ElementAt(i).ProductID, appID = P.InvestorApplications.ElementAt(i).InvestorApplicationID, appnumber = P.InvestorApplications.ElementAt(i).ApplicationNumber })">Approve</a> |
+                                                    <a href="@Url.Action("RejectInvapp", "Applications", new { id = P.InvestorApplications.ElementAt(i).ProductID, appID = P.InvestorApplications.ElementAt(i).InvestorApplicationID, appnumber = P.InvestorApplications.ElementAt(i).ApplicationNumber })"> Reject</a>|
+                                                    <a href="@Url.Action("InvApplicationDetails", "Applications", new { id = P.InvestorApplications.ElementAt(i).ProductID, appID = P.InvestorApplications.ElementAt(i).InvestorApplicationID, appnumber = P.InvestorApplications.ElementAt(i).ApplicationNumber })"> Details</a>
+                                                </th>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                     </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+<script src="jquery.scrollable.js"></script>
+</body>

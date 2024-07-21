@@ -1,0 +1,2303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activity_Log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="operation_name" Type="varchar" MaxLength="50" />
+          <Property Name="page_name" Type="varchar" MaxLength="50" />
+          <Property Name="log_time" Type="varchar" MaxLength="50" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="table_name" Type="varchar" MaxLength="50" />
+          <Property Name="new_details" Type="varchar(max)" />
+          <Property Name="old_details" Type="varchar(max)" />
+          <Property Name="deleted" Type="bit" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="modified_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AreaOfInvestmentInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AreaOfStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QIGI.dbo.AspNetUserLogins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Roles_id" Type="int" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="user_pic" Type="nvarchar(max)" />
+          <Property Name="mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="tax_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="zip_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="expiry_date" Type="datetime" />
+          <Property Name="last_login" Type="datetime" />
+          <Property Name="last_change_pwd_date" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="deleted" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="insurance_agent" Type="bit" />
+          <Property Name="hearfrom" Type="nvarchar" MaxLength="50" />
+          <Property Name="profile_img" Type="image" />
+          <Property Name="imageupload" Type="nvarchar(max)" />
+          <Property Name="state" Type="nvarchar" MaxLength="50" />
+          <Property Name="NationalID" Type="nvarchar(max)" />
+          <Property Name="AdminApproval" Type="bit" />
+          <Property Name="AdminRejected" Type="bit" />
+        </EntityType>
+        <EntityType Name="AverageInvestment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="BAppAm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppId" Type="int" />
+          <Property Name="AccountManagerId" Type="int" />
+          <Property Name="ReviewerID" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="BorrowerId" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="BorrowerApplication">
+          <Key>
+            <PropertyRef Name="BorrowerApplicationID" />
+          </Key>
+          <Property Name="BorrowerApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompleteAddress" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalNoofApplication" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplicationNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BorrowerSubmittedQuestionsID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Descripation" Type="nvarchar(max)" />
+          <Property Name="ApprovalStatus" Type="bit" />
+          <Property Name="RejectedStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="BorrowerApplicationCollection">
+          <Key>
+            <PropertyRef Name="BorrowerAppCollectionId" />
+          </Key>
+          <Property Name="BorrowerAppCollectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="AppID" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="BorrowerAssets">
+          <Key>
+            <PropertyRef Name="BorrowerAssetID" />
+          </Key>
+          <Property Name="BorrowerAssetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="BorrowerApplicationID" Type="int" />
+          <Property Name="AssetsType" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssetsValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerShipPercentage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Assets" Type="nvarchar(max)" />
+          <Property Name="AssetFile" Type="image" />
+        </EntityType>
+        <EntityType Name="BorrowerDocuments">
+          <Key>
+            <PropertyRef Name="BorrowerDocumentID" />
+          </Key>
+          <Property Name="BorrowerDocumentID" Type="int" Nullable="false" />
+          <Property Name="UplaodedDocument" Type="image" />
+          <Property Name="UploadedDocumentPath" Type="nvarchar(max)" />
+          <Property Name="BorrowerApplicationID" Type="int" />
+        </EntityType>
+        <EntityType Name="BorrowerOptionQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OptionQuestion" Type="nvarchar" MaxLength="500" />
+          <Property Name="QuestionId" Type="int" />
+        </EntityType>
+        <EntityType Name="BorrowerQuestions">
+          <Key>
+            <PropertyRef Name="BorrowerQuestionID" />
+          </Key>
+          <Property Name="BorrowerQuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar(max)" />
+          <Property Name="Control" Type="nvarchar" MaxLength="500" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QIGI.dbo.BorrowerSubmittedQuestions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BorrowerSubmittedQuestions">
+          <Key>
+            <PropertyRef Name="BorrowerSubmittedQuestionsID" />
+          </Key>
+          <Property Name="BorrowerSubmittedQuestionsID" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="BorrowerQuestionID" Type="int" />
+          <Property Name="Answers" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ChargesSlab">
+          <Key>
+            <PropertyRef Name="ChargesSlabID" />
+          </Key>
+          <Property Name="ChargesSlabID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SlabName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinAmount" Type="nvarchar(max)" />
+          <Property Name="MaxAmount" Type="nvarchar(max)" />
+          <Property Name="ChargesAmount" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CollateralType">
+          <Key>
+            <PropertyRef Name="CollateralTypeID" />
+          </Key>
+          <Property Name="CollateralTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="ColleteralDetail" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="GuardianName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MartialStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="SpouseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="KidsCount" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomeAddress" Type="nvarchar(max)" />
+          <Property Name="TempareryAddress" Type="nvarchar(max)" />
+          <Property Name="NationalID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTN" Type="nvarchar" MaxLength="50" />
+          <Property Name="Process" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FinancialAdvisor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="InvesterQuestions">
+          <Key>
+            <PropertyRef Name="InvesterQuestionsID" />
+          </Key>
+          <Property Name="InvesterQuestionsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar(max)" />
+          <Property Name="Control" Type="nvarchar" MaxLength="500" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InvestorApplication">
+          <Key>
+            <PropertyRef Name="InvestorApplicationID" />
+          </Key>
+          <Property Name="InvestorApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompleteAddress" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalNoofApplication" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplicationNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvestorSubmittedQuestionsID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Descripation" Type="nvarchar(max)" />
+          <Property Name="RejectedStatus" Type="bit" />
+          <Property Name="ApprovalStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="InvestorApplicationCollection">
+          <Key>
+            <PropertyRef Name="InvestorAppCollectionId" />
+          </Key>
+          <Property Name="InvestorAppCollectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="AppID" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="InvestorDocuments">
+          <Key>
+            <PropertyRef Name="InvestorDocumentID" />
+          </Key>
+          <Property Name="InvestorDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UploadedDocument" Type="image" />
+          <Property Name="UploadDocumentPath" Type="nvarchar(max)" />
+          <Property Name="InvestorApplicationID" Type="int" />
+        </EntityType>
+        <EntityType Name="InvestorFeedbackHistory">
+          <Key>
+            <PropertyRef Name="InvestorFeedBackID" />
+          </Key>
+          <Property Name="InvestorFeedBackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="InversotApplicationID" Type="int" />
+        </EntityType>
+        <EntityType Name="InvestorFunds">
+          <Key>
+            <PropertyRef Name="InvestorFundID" />
+          </Key>
+          <Property Name="InvestorFundID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvestAmount" Type="nvarchar" MaxLength="50" />
+          <Property Name="IntrestRate" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvestmentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="InvestorApplicationID" Type="int" />
+          <Property Name="InvestmentPeriod" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InvestorOptionQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OptionQuestion" Type="nvarchar" MaxLength="500" />
+          <Property Name="QuestionId" Type="int" />
+        </EntityType>
+        <EntityType Name="InvestorQualification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar(max)" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Income" Type="bit" />
+          <Property Name="NetWorth" Type="bit" />
+          <Property Name="Occupation" Type="nvarchar(max)" />
+          <Property Name="BusinessorFinancialExperience" Type="nvarchar(max)" />
+          <Property Name="DegreeandDesignations" Type="nvarchar(max)" />
+          <Property Name="CurrentNoOfProperties" Type="nvarchar(max)" />
+          <Property Name="CurrentTypesOfProperties" Type="varchar(max)" />
+          <Property Name="PriorNoOfProperties" Type="nvarchar(max)" />
+          <Property Name="PriorTypesOfProperties" Type="varchar(max)" />
+          <Property Name="RealEstateExperience" Type="varchar(max)" />
+          <Property Name="InvestmentValue" Type="varchar(max)" />
+          <Property Name="PreviousBusiness" Type="varchar(max)" />
+          <Property Name="Memberof" Type="varchar(max)" />
+          <Property Name="HomebuyersofGA" Type="nvarchar(max)" />
+          <Property Name="InvestorID" Type="int" Nullable="false" />
+          <Property Name="ProcessStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Signature" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ConfirmSignature" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConfirmDate" Type="datetime" />
+          <Property Name="RelationshipWith" Type="nvarchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvestorQualificationApplication">
+          <Key>
+            <PropertyRef Name="InvestorQualificationID" />
+          </Key>
+          <Property Name="InvestorQualificationID" Type="int" Nullable="false" />
+          <Property Name="InvestorID" Type="int" />
+          <Property Name="ApplicationNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InvestorSubmittedQuestions">
+          <Key>
+            <PropertyRef Name="InvestorSubmittedQuestionsID" />
+          </Key>
+          <Property Name="InvestorSubmittedQuestionsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvestorQuestionID" Type="int" />
+          <Property Name="Answer" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'QIGI.dbo.Meeting' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Meeting">
+          <Property Name="MeetingID" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="AnnoucedDate" Type="datetime" />
+          <Property Name="UserApplicationID" Type="int" />
+          <Property Name="MeetingNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="MeetingType" Type="nvarchar" MaxLength="50" />
+          <Property Name="MeetingLink" Type="nvarchar(max)" />
+          <Property Name="UploadFile" Type="image" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+          <Property Name="MeetingPlace" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplicationStatus" Type="bit" />
+          <Property Name="MeetingForUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParticipantID" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="AutoDeductQualification" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>-->
+        <EntityType Name="ProductCharges">
+          <Key>
+            <PropertyRef Name="PChargesID" />
+          </Key>
+          <Property Name="PChargesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PChargesTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductChargesTypes">
+          <Key>
+            <PropertyRef Name="PChargesTypeID" />
+          </Key>
+          <Property Name="PChargesTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChargesName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="ChargesSlabID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductDocuments">
+          <Key>
+            <PropertyRef Name="ProductDocumentID" />
+          </Key>
+          <Property Name="ProductDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductDocumentTypeID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="UploadedDocument" Type="nvarchar" MaxLength="50" />
+          <Property Name="UploadedDocumentPath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductDocumentTypes">
+          <Key>
+            <PropertyRef Name="ProductDocumentTypeID" />
+          </Key>
+          <Property Name="ProductDocumentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProductImages">
+          <Key>
+            <PropertyRef Name="ProductImageID" />
+          </Key>
+          <Property Name="ProductImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductInteresRateSlab">
+          <Key>
+            <PropertyRef Name="PIntrestRateSlab" />
+          </Key>
+          <Property Name="PIntrestRateSlab" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PChargesID" Type="int" />
+          <Property Name="IntrestRate" Type="nvarchar(max)" />
+          <Property Name="Tenor" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="PublishedDate" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="ApprovalStatus" Type="bit" />
+          <Property Name="ApprovedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="RejectedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="RateofReturn" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductStatus" Type="bit" />
+          <Property Name="MinimumPeriod" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaximumPeriod" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductTypeID" Type="int" />
+          <Property Name="RejectedStatus" Type="bit" />
+          <Property Name="AreaOfStock" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ProductTypeID" />
+          </Key>
+          <Property Name="ProductTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SecurityType">
+          <Key>
+            <PropertyRef Name="ProductSecurityID" />
+          </Key>
+          <Property Name="ProductSecurityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SecurityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="SecurityDetail" Type="nvarchar(max)" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypesOfStocks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TypicalYield">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_Activity_Log_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Activity_Log" Type="Self.Activity_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity_Log">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BorrowerAssets_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="BorrowerAssets" Type="Self.BorrowerAssets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BorrowerAssets">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BorrowerDocuments_BorrowerApplication">
+          <End Role="BorrowerApplication" Type="Self.BorrowerApplication" Multiplicity="0..1" />
+          <End Role="BorrowerDocuments" Type="Self.BorrowerDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BorrowerApplication">
+              <PropertyRef Name="BorrowerApplicationID" />
+            </Principal>
+            <Dependent Role="BorrowerDocuments">
+              <PropertyRef Name="BorrowerApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestorApplication_InvestorSubmittedQuestions">
+          <End Role="InvestorSubmittedQuestions" Type="Self.InvestorSubmittedQuestions" Multiplicity="0..1" />
+          <End Role="InvestorApplication" Type="Self.InvestorApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestorSubmittedQuestions">
+              <PropertyRef Name="InvestorSubmittedQuestionsID" />
+            </Principal>
+            <Dependent Role="InvestorApplication">
+              <PropertyRef Name="InvestorSubmittedQuestionsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestorDocuments_InvestorApplication">
+          <End Role="InvestorApplication" Type="Self.InvestorApplication" Multiplicity="0..1" />
+          <End Role="InvestorDocuments" Type="Self.InvestorDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestorApplication">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Principal>
+            <Dependent Role="InvestorDocuments">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestorFeedbackHistory_InvestorApplication">
+          <End Role="InvestorApplication" Type="Self.InvestorApplication" Multiplicity="0..1" />
+          <End Role="InvestorFeedbackHistory" Type="Self.InvestorFeedbackHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestorApplication">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Principal>
+            <Dependent Role="InvestorFeedbackHistory">
+              <PropertyRef Name="InversotApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestorFunds_InvestorApplication">
+          <End Role="InvestorApplication" Type="Self.InvestorApplication" Multiplicity="0..1" />
+          <End Role="InvestorFunds" Type="Self.InvestorFunds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestorApplication">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Principal>
+            <Dependent Role="InvestorFunds">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCharges_ProductChargesTypes">
+          <End Role="ProductChargesTypes" Type="Self.ProductChargesTypes" Multiplicity="0..1" />
+          <End Role="ProductCharges" Type="Self.ProductCharges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductChargesTypes">
+              <PropertyRef Name="PChargesTypeID" />
+            </Principal>
+            <Dependent Role="ProductCharges">
+              <PropertyRef Name="PChargesTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDocuments_ProductDocumentTypes">
+          <End Role="ProductDocumentTypes" Type="Self.ProductDocumentTypes" Multiplicity="0..1" />
+          <End Role="ProductDocuments" Type="Self.ProductDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDocumentTypes">
+              <PropertyRef Name="ProductDocumentTypeID" />
+            </Principal>
+            <Dependent Role="ProductDocuments">
+              <PropertyRef Name="ProductDocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDocuments_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductDocuments" Type="Self.ProductDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDocuments">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductImages_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductImages" Type="Self.ProductImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductImages">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInteresRateSlab_ProductCharges">
+          <End Role="ProductCharges" Type="Self.ProductCharges" Multiplicity="0..1" />
+          <End Role="ProductInteresRateSlab" Type="Self.ProductInteresRateSlab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCharges">
+              <PropertyRef Name="PChargesID" />
+            </Principal>
+            <Dependent Role="ProductInteresRateSlab">
+              <PropertyRef Name="PChargesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductType">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="ProductTypeID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Activity_Log" EntityType="Self.Activity_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaOfInvestmentInterest" EntityType="Self.AreaOfInvestmentInterest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaOfStock" EntityType="Self.AreaOfStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AverageInvestment" EntityType="Self.AverageInvestment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAppAm" EntityType="Self.BAppAm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorrowerApplication" EntityType="Self.BorrowerApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorrowerApplicationCollection" EntityType="Self.BorrowerApplicationCollection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorrowerAssets" EntityType="Self.BorrowerAssets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorrowerDocuments" EntityType="Self.BorrowerDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorrowerOptionQuestion" EntityType="Self.BorrowerOptionQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorrowerQuestions" EntityType="Self.BorrowerQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChargesSlab" EntityType="Self.ChargesSlab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CollateralType" EntityType="Self.CollateralType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinancialAdvisor" EntityType="Self.FinancialAdvisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvesterQuestions" EntityType="Self.InvesterQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorApplication" EntityType="Self.InvestorApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorApplicationCollection" EntityType="Self.InvestorApplicationCollection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorDocuments" EntityType="Self.InvestorDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorFeedbackHistory" EntityType="Self.InvestorFeedbackHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorFunds" EntityType="Self.InvestorFunds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorOptionQuestion" EntityType="Self.InvestorOptionQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorQualification" EntityType="Self.InvestorQualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorQualificationApplication" EntityType="Self.InvestorQualificationApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestorSubmittedQuestions" EntityType="Self.InvestorSubmittedQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCharges" EntityType="Self.ProductCharges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductChargesTypes" EntityType="Self.ProductChargesTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDocuments" EntityType="Self.ProductDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDocumentTypes" EntityType="Self.ProductDocumentTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductInteresRateSlab" EntityType="Self.ProductInteresRateSlab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SecurityType" EntityType="Self.SecurityType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesOfStocks" EntityType="Self.TypesOfStocks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypicalYield" EntityType="Self.TypicalYield" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AspNetUserLogins].[LoginProvider] AS [LoginProvider], 
+    [AspNetUserLogins].[ProviderKey] AS [ProviderKey], 
+    [AspNetUserLogins].[UserId] AS [UserId]
+    FROM [dbo].[AspNetUserLogins] AS [AspNetUserLogins]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BorrowerSubmittedQuestions" EntityType="Self.BorrowerSubmittedQuestions" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BorrowerSubmittedQuestions].[BorrowerSubmittedQuestionsID] AS [BorrowerSubmittedQuestionsID], 
+    [BorrowerSubmittedQuestions].[BorrowerQuestionID] AS [BorrowerQuestionID], 
+    [BorrowerSubmittedQuestions].[Answers] AS [Answers]
+    FROM [dbo].[BorrowerSubmittedQuestions] AS [BorrowerSubmittedQuestions]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Activity_Log_AspNetUsers" Association="Self.FK_Activity_Log_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Activity_Log" EntitySet="Activity_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BorrowerAssets_Customers" Association="Self.FK_BorrowerAssets_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BorrowerAssets" EntitySet="BorrowerAssets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BorrowerDocuments_BorrowerApplication" Association="Self.FK_BorrowerDocuments_BorrowerApplication">
+            <End Role="BorrowerApplication" EntitySet="BorrowerApplication" />
+            <End Role="BorrowerDocuments" EntitySet="BorrowerDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestorApplication_InvestorSubmittedQuestions" Association="Self.FK_InvestorApplication_InvestorSubmittedQuestions">
+            <End Role="InvestorSubmittedQuestions" EntitySet="InvestorSubmittedQuestions" />
+            <End Role="InvestorApplication" EntitySet="InvestorApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestorDocuments_InvestorApplication" Association="Self.FK_InvestorDocuments_InvestorApplication">
+            <End Role="InvestorApplication" EntitySet="InvestorApplication" />
+            <End Role="InvestorDocuments" EntitySet="InvestorDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestorFeedbackHistory_InvestorApplication" Association="Self.FK_InvestorFeedbackHistory_InvestorApplication">
+            <End Role="InvestorApplication" EntitySet="InvestorApplication" />
+            <End Role="InvestorFeedbackHistory" EntitySet="InvestorFeedbackHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestorFunds_InvestorApplication" Association="Self.FK_InvestorFunds_InvestorApplication">
+            <End Role="InvestorApplication" EntitySet="InvestorApplication" />
+            <End Role="InvestorFunds" EntitySet="InvestorFunds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCharges_ProductChargesTypes" Association="Self.FK_ProductCharges_ProductChargesTypes">
+            <End Role="ProductChargesTypes" EntitySet="ProductChargesTypes" />
+            <End Role="ProductCharges" EntitySet="ProductCharges" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDocuments_ProductDocumentTypes" Association="Self.FK_ProductDocuments_ProductDocumentTypes">
+            <End Role="ProductDocumentTypes" EntitySet="ProductDocumentTypes" />
+            <End Role="ProductDocuments" EntitySet="ProductDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDocuments_Products" Association="Self.FK_ProductDocuments_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductDocuments" EntitySet="ProductDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductImages_Products" Association="Self.FK_ProductImages_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductImages" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInteresRateSlab_ProductCharges" Association="Self.FK_ProductInteresRateSlab_ProductCharges">
+            <End Role="ProductCharges" EntitySet="ProductCharges" />
+            <End Role="ProductInteresRateSlab" EntitySet="ProductInteresRateSlab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductType" Association="Self.FK_Products_ProductType">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activity_Log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="operation_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="page_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="log_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="table_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="new_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="old_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="deleted" Type="Boolean" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Activity_Log_AspNetUsers" FromRole="Activity_Log" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AreaOfInvestmentInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AreaOfStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Roles_id" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="user_pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tax_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="zip_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="expiry_date" Type="DateTime" Precision="3" />
+          <Property Name="last_login" Type="DateTime" Precision="3" />
+          <Property Name="last_change_pwd_date" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="deleted" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="insurance_agent" Type="Boolean" />
+          <Property Name="hearfrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="profile_img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="imageupload" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NationalID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdminApproval" Type="Boolean" />
+          <Property Name="AdminRejected" Type="Boolean" />
+          <NavigationProperty Name="Activity_Log" Relationship="Self.FK_Activity_Log_AspNetUsers" FromRole="AspNetUsers" ToRole="Activity_Log" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+        </EntityType>
+        <EntityType Name="AverageInvestment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BAppAm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppId" Type="Int32" />
+          <Property Name="AccountManagerId" Type="Int32" />
+          <Property Name="ReviewerID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BorrowerId" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BorrowerApplication">
+          <Key>
+            <PropertyRef Name="BorrowerApplicationID" />
+          </Key>
+          <Property Name="BorrowerApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompleteAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalNoofApplication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BorrowerSubmittedQuestionsID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Descripation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovalStatus" Type="Boolean" />
+          <Property Name="RejectedStatus" Type="Boolean" />
+          <NavigationProperty Name="BorrowerDocuments" Relationship="Self.FK_BorrowerDocuments_BorrowerApplication" FromRole="BorrowerApplication" ToRole="BorrowerDocuments" />
+        </EntityType>
+        <EntityType Name="BorrowerApplicationCollection">
+          <Key>
+            <PropertyRef Name="BorrowerAppCollectionId" />
+          </Key>
+          <Property Name="BorrowerAppCollectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="AppID" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BorrowerAsset">
+          <Key>
+            <PropertyRef Name="BorrowerAssetID" />
+          </Key>
+          <Property Name="BorrowerAssetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="BorrowerApplicationID" Type="Int32" />
+          <Property Name="AssetsType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AssetsValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerShipPercentage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Assets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AssetFile" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_BorrowerAssets_Customers" FromRole="BorrowerAssets" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="BorrowerDocument">
+          <Key>
+            <PropertyRef Name="BorrowerDocumentID" />
+          </Key>
+          <Property Name="BorrowerDocumentID" Type="Int32" Nullable="false" />
+          <Property Name="UplaodedDocument" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UploadedDocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BorrowerApplicationID" Type="Int32" />
+          <NavigationProperty Name="BorrowerApplication" Relationship="Self.FK_BorrowerDocuments_BorrowerApplication" FromRole="BorrowerDocuments" ToRole="BorrowerApplication" />
+        </EntityType>
+        <EntityType Name="BorrowerQuestion">
+          <Key>
+            <PropertyRef Name="BorrowerQuestionID" />
+          </Key>
+          <Property Name="BorrowerQuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Control" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChargesSlab">
+          <Key>
+            <PropertyRef Name="ChargesSlabID" />
+          </Key>
+          <Property Name="ChargesSlabID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SlabName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinAmount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaxAmount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChargesAmount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CollateralType">
+          <Key>
+            <PropertyRef Name="CollateralTypeID" />
+          </Key>
+          <Property Name="CollateralTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="ColleteralDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="GuardianName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MartialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KidsCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HomeAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TempareryAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NationalID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Process" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BorrowerAssets" Relationship="Self.FK_BorrowerAssets_Customers" FromRole="Customers" ToRole="BorrowerAssets" />
+        </EntityType>
+        <EntityType Name="FinancialAdvisor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InvesterQuestion">
+          <Key>
+            <PropertyRef Name="InvesterQuestionsID" />
+          </Key>
+          <Property Name="InvesterQuestionsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Control" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InvestorApplication">
+          <Key>
+            <PropertyRef Name="InvestorApplicationID" />
+          </Key>
+          <Property Name="InvestorApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompleteAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalNoofApplication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvestorSubmittedQuestionsID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Descripation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RejectedStatus" Type="Boolean" />
+          <Property Name="ApprovalStatus" Type="Boolean" />
+          <NavigationProperty Name="InvestorSubmittedQuestion" Relationship="Self.FK_InvestorApplication_InvestorSubmittedQuestions" FromRole="InvestorApplication" ToRole="InvestorSubmittedQuestions" />
+          <NavigationProperty Name="InvestorDocuments" Relationship="Self.FK_InvestorDocuments_InvestorApplication" FromRole="InvestorApplication" ToRole="InvestorDocuments" />
+          <NavigationProperty Name="InvestorFeedbackHistories" Relationship="Self.FK_InvestorFeedbackHistory_InvestorApplication" FromRole="InvestorApplication" ToRole="InvestorFeedbackHistory" />
+          <NavigationProperty Name="InvestorFunds" Relationship="Self.FK_InvestorFunds_InvestorApplication" FromRole="InvestorApplication" ToRole="InvestorFunds" />
+        </EntityType>
+        <EntityType Name="InvestorApplicationCollection">
+          <Key>
+            <PropertyRef Name="InvestorAppCollectionId" />
+          </Key>
+          <Property Name="InvestorAppCollectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="AppID" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="InvestorDocument">
+          <Key>
+            <PropertyRef Name="InvestorDocumentID" />
+          </Key>
+          <Property Name="InvestorDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UploadedDocument" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UploadDocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InvestorApplicationID" Type="Int32" />
+          <NavigationProperty Name="InvestorApplication" Relationship="Self.FK_InvestorDocuments_InvestorApplication" FromRole="InvestorDocuments" ToRole="InvestorApplication" />
+        </EntityType>
+        <EntityType Name="InvestorFeedbackHistory">
+          <Key>
+            <PropertyRef Name="InvestorFeedBackID" />
+          </Key>
+          <Property Name="InvestorFeedBackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="InversotApplicationID" Type="Int32" />
+          <NavigationProperty Name="InvestorApplication" Relationship="Self.FK_InvestorFeedbackHistory_InvestorApplication" FromRole="InvestorFeedbackHistory" ToRole="InvestorApplication" />
+        </EntityType>
+        <EntityType Name="InvestorFund">
+          <Key>
+            <PropertyRef Name="InvestorFundID" />
+          </Key>
+          <Property Name="InvestorFundID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvestAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IntrestRate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvestmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="InvestorApplicationID" Type="Int32" />
+          <Property Name="InvestmentPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InvestorApplication" Relationship="Self.FK_InvestorFunds_InvestorApplication" FromRole="InvestorFunds" ToRole="InvestorApplication" />
+        </EntityType>
+        <EntityType Name="InvestorOptionQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OptionQuestion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="InvestorQualification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Income" Type="Boolean" />
+          <Property Name="NetWorth" Type="Boolean" />
+          <Property Name="Occupation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessorFinancialExperience" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DegreeandDesignations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentNoOfProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentTypesOfProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PriorNoOfProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriorTypesOfProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RealEstateExperience" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="InvestmentValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PreviousBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Memberof" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HomebuyersofGA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InvestorID" Type="Int32" Nullable="false" />
+          <Property Name="ProcessStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Signature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+          <Property Name="RelationshipWith" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvestorQualificationApplication">
+          <Key>
+            <PropertyRef Name="InvestorQualificationID" />
+          </Key>
+          <Property Name="InvestorQualificationID" Type="Int32" Nullable="false" />
+          <Property Name="InvestorID" Type="Int32" />
+          <Property Name="ApplicationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InvestorSubmittedQuestion">
+          <Key>
+            <PropertyRef Name="InvestorSubmittedQuestionsID" />
+          </Key>
+          <Property Name="InvestorSubmittedQuestionsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvestorQuestionID" Type="Int32" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InvestorApplications" Relationship="Self.FK_InvestorApplication_InvestorSubmittedQuestions" FromRole="InvestorSubmittedQuestions" ToRole="InvestorApplication" />
+        </EntityType>
+        <EntityType Name="ProductCharge">
+          <Key>
+            <PropertyRef Name="PChargesID" />
+          </Key>
+          <Property Name="PChargesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PChargesTypeID" Type="Int32" />
+          <NavigationProperty Name="ProductChargesType" Relationship="Self.FK_ProductCharges_ProductChargesTypes" FromRole="ProductCharges" ToRole="ProductChargesTypes" />
+          <NavigationProperty Name="ProductInteresRateSlabs" Relationship="Self.FK_ProductInteresRateSlab_ProductCharges" FromRole="ProductCharges" ToRole="ProductInteresRateSlab" />
+        </EntityType>
+        <EntityType Name="ProductChargesType">
+          <Key>
+            <PropertyRef Name="PChargesTypeID" />
+          </Key>
+          <Property Name="PChargesTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChargesName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="ChargesSlabID" Type="Int32" />
+          <NavigationProperty Name="ProductCharges" Relationship="Self.FK_ProductCharges_ProductChargesTypes" FromRole="ProductChargesTypes" ToRole="ProductCharges" />
+        </EntityType>
+        <EntityType Name="ProductDocument">
+          <Key>
+            <PropertyRef Name="ProductDocumentID" />
+          </Key>
+          <Property Name="ProductDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductDocumentTypeID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="UploadedDocument" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UploadedDocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductDocumentType" Relationship="Self.FK_ProductDocuments_ProductDocumentTypes" FromRole="ProductDocuments" ToRole="ProductDocumentTypes" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductDocuments_Products" FromRole="ProductDocuments" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="ProductDocumentType">
+          <Key>
+            <PropertyRef Name="ProductDocumentTypeID" />
+          </Key>
+          <Property Name="ProductDocumentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductDocuments" Relationship="Self.FK_ProductDocuments_ProductDocumentTypes" FromRole="ProductDocumentTypes" ToRole="ProductDocuments" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="ProductImageID" />
+          </Key>
+          <Property Name="ProductImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductImages_Products" FromRole="ProductImages" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="ProductInteresRateSlab">
+          <Key>
+            <PropertyRef Name="PIntrestRateSlab" />
+          </Key>
+          <Property Name="PIntrestRateSlab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PChargesID" Type="Int32" />
+          <Property Name="IntrestRate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tenor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductCharge" Relationship="Self.FK_ProductInteresRateSlab_ProductCharges" FromRole="ProductInteresRateSlab" ToRole="ProductCharges" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="PublishedDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="ApprovalStatus" Type="Boolean" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RejectedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RateofReturn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductStatus" Type="Boolean" />
+          <Property Name="MinimumPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaximumPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductTypeID" Type="Int32" />
+          <Property Name="RejectedStatus" Type="Boolean" />
+          <Property Name="AreaOfStock" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductDocuments" Relationship="Self.FK_ProductDocuments_Products" FromRole="Products" ToRole="ProductDocuments" />
+          <NavigationProperty Name="ProductImages" Relationship="Self.FK_ProductImages_Products" FromRole="Products" ToRole="ProductImages" />
+          <NavigationProperty Name="ProductType1" Relationship="Self.FK_Products_ProductType" FromRole="Products" ToRole="ProductType" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ProductTypeID" />
+          </Key>
+          <Property Name="ProductTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_ProductType" FromRole="ProductType" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="SecurityType">
+          <Key>
+            <PropertyRef Name="ProductSecurityID" />
+          </Key>
+          <Property Name="ProductSecurityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SecurityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="SecurityDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypesOfStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TypicalYield">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="BorrowerSubmittedQuestion">
+          <Key>
+            <PropertyRef Name="BorrowerSubmittedQuestionsID" />
+          </Key>
+          <Property Name="BorrowerSubmittedQuestionsID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BorrowerQuestionID" Type="Int32" />
+          <Property Name="Answers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Activity_Log_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Activity_Log" Type="Self.Activity_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity_Log">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BorrowerDocuments_BorrowerApplication">
+          <End Role="BorrowerApplication" Type="Self.BorrowerApplication" Multiplicity="0..1" />
+          <End Role="BorrowerDocuments" Type="Self.BorrowerDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BorrowerApplication">
+              <PropertyRef Name="BorrowerApplicationID" />
+            </Principal>
+            <Dependent Role="BorrowerDocuments">
+              <PropertyRef Name="BorrowerApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BorrowerAssets_Customers">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="BorrowerAssets" Type="Self.BorrowerAsset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BorrowerAssets">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestorApplication_InvestorSubmittedQuestions">
+          <End Role="InvestorSubmittedQuestions" Type="Self.InvestorSubmittedQuestion" Multiplicity="0..1" />
+          <End Role="InvestorApplication" Type="Self.InvestorApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestorSubmittedQuestions">
+              <PropertyRef Name="InvestorSubmittedQuestionsID" />
+            </Principal>
+            <Dependent Role="InvestorApplication">
+              <PropertyRef Name="InvestorSubmittedQuestionsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestorDocuments_InvestorApplication">
+          <End Role="InvestorApplication" Type="Self.InvestorApplication" Multiplicity="0..1" />
+          <End Role="InvestorDocuments" Type="Self.InvestorDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestorApplication">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Principal>
+            <Dependent Role="InvestorDocuments">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestorFeedbackHistory_InvestorApplication">
+          <End Role="InvestorApplication" Type="Self.InvestorApplication" Multiplicity="0..1" />
+          <End Role="InvestorFeedbackHistory" Type="Self.InvestorFeedbackHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestorApplication">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Principal>
+            <Dependent Role="InvestorFeedbackHistory">
+              <PropertyRef Name="InversotApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestorFunds_InvestorApplication">
+          <End Role="InvestorApplication" Type="Self.InvestorApplication" Multiplicity="0..1" />
+          <End Role="InvestorFunds" Type="Self.InvestorFund" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestorApplication">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Principal>
+            <Dependent Role="InvestorFunds">
+              <PropertyRef Name="InvestorApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCharges_ProductChargesTypes">
+          <End Role="ProductChargesTypes" Type="Self.ProductChargesType" Multiplicity="0..1" />
+          <End Role="ProductCharges" Type="Self.ProductCharge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductChargesTypes">
+              <PropertyRef Name="PChargesTypeID" />
+            </Principal>
+            <Dependent Role="ProductCharges">
+              <PropertyRef Name="PChargesTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInteresRateSlab_ProductCharges">
+          <End Role="ProductCharges" Type="Self.ProductCharge" Multiplicity="0..1" />
+          <End Role="ProductInteresRateSlab" Type="Self.ProductInteresRateSlab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCharges">
+              <PropertyRef Name="PChargesID" />
+            </Principal>
+            <Dependent Role="ProductInteresRateSlab">
+              <PropertyRef Name="PChargesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDocuments_ProductDocumentTypes">
+          <End Role="ProductDocumentTypes" Type="Self.ProductDocumentType" Multiplicity="0..1" />
+          <End Role="ProductDocuments" Type="Self.ProductDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDocumentTypes">
+              <PropertyRef Name="ProductDocumentTypeID" />
+            </Principal>
+            <Dependent Role="ProductDocuments">
+              <PropertyRef Name="ProductDocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDocuments_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductDocuments" Type="Self.ProductDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDocuments">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductImages_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductImages" Type="Self.ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductImages">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductType">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="ProductTypeID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QIGIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activity_Log" EntityType="Self.Activity_Log" />
+          <EntitySet Name="AreaOfInvestmentInterests" EntityType="Self.AreaOfInvestmentInterest" />
+          <EntitySet Name="AreaOfStocks" EntityType="Self.AreaOfStock" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="AverageInvestments" EntityType="Self.AverageInvestment" />
+          <EntitySet Name="BAppAms" EntityType="Self.BAppAm" />
+          <EntitySet Name="BorrowerApplications" EntityType="Self.BorrowerApplication" />
+          <EntitySet Name="BorrowerApplicationCollections" EntityType="Self.BorrowerApplicationCollection" />
+          <EntitySet Name="BorrowerAssets" EntityType="Self.BorrowerAsset" />
+          <EntitySet Name="BorrowerDocuments" EntityType="Self.BorrowerDocument" />
+          <EntitySet Name="BorrowerQuestions" EntityType="Self.BorrowerQuestion" />
+          <EntitySet Name="ChargesSlabs" EntityType="Self.ChargesSlab" />
+          <EntitySet Name="CollateralTypes" EntityType="Self.CollateralType" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="FinancialAdvisors" EntityType="Self.FinancialAdvisor" />
+          <EntitySet Name="InvesterQuestions" EntityType="Self.InvesterQuestion" />
+          <EntitySet Name="InvestorApplications" EntityType="Self.InvestorApplication" />
+          <EntitySet Name="InvestorApplicationCollections" EntityType="Self.InvestorApplicationCollection" />
+          <EntitySet Name="InvestorDocuments" EntityType="Self.InvestorDocument" />
+          <EntitySet Name="InvestorFeedbackHistories" EntityType="Self.InvestorFeedbackHistory" />
+          <EntitySet Name="InvestorFunds" EntityType="Self.InvestorFund" />
+          <EntitySet Name="InvestorOptionQuestions" EntityType="Self.InvestorOptionQuestion" />
+          <EntitySet Name="InvestorQualifications" EntityType="Self.InvestorQualification" />
+          <EntitySet Name="InvestorQualificationApplications" EntityType="Self.InvestorQualificationApplication" />
+          <EntitySet Name="InvestorSubmittedQuestions" EntityType="Self.InvestorSubmittedQuestion" />
+          <EntitySet Name="ProductCharges" EntityType="Self.ProductCharge" />
+          <EntitySet Name="ProductChargesTypes" EntityType="Self.ProductChargesType" />
+          <EntitySet Name="ProductDocuments" EntityType="Self.ProductDocument" />
+          <EntitySet Name="ProductDocumentTypes" EntityType="Self.ProductDocumentType" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+          <EntitySet Name="ProductInteresRateSlabs" EntityType="Self.ProductInteresRateSlab" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
+          <EntitySet Name="SecurityTypes" EntityType="Self.SecurityType" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TypesOfStocks" EntityType="Self.TypesOfStock" />
+          <EntitySet Name="TypicalYields" EntityType="Self.TypicalYield" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="BorrowerSubmittedQuestions" EntityType="Self.BorrowerSubmittedQuestion" />
+          <AssociationSet Name="FK_Activity_Log_AspNetUsers" Association="Self.FK_Activity_Log_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Activity_Log" EntitySet="Activity_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BorrowerDocuments_BorrowerApplication" Association="Self.FK_BorrowerDocuments_BorrowerApplication">
+            <End Role="BorrowerApplication" EntitySet="BorrowerApplications" />
+            <End Role="BorrowerDocuments" EntitySet="BorrowerDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BorrowerAssets_Customers" Association="Self.FK_BorrowerAssets_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BorrowerAssets" EntitySet="BorrowerAssets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestorApplication_InvestorSubmittedQuestions" Association="Self.FK_InvestorApplication_InvestorSubmittedQuestions">
+            <End Role="InvestorSubmittedQuestions" EntitySet="InvestorSubmittedQuestions" />
+            <End Role="InvestorApplication" EntitySet="InvestorApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestorDocuments_InvestorApplication" Association="Self.FK_InvestorDocuments_InvestorApplication">
+            <End Role="InvestorApplication" EntitySet="InvestorApplications" />
+            <End Role="InvestorDocuments" EntitySet="InvestorDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestorFeedbackHistory_InvestorApplication" Association="Self.FK_InvestorFeedbackHistory_InvestorApplication">
+            <End Role="InvestorApplication" EntitySet="InvestorApplications" />
+            <End Role="InvestorFeedbackHistory" EntitySet="InvestorFeedbackHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestorFunds_InvestorApplication" Association="Self.FK_InvestorFunds_InvestorApplication">
+            <End Role="InvestorApplication" EntitySet="InvestorApplications" />
+            <End Role="InvestorFunds" EntitySet="InvestorFunds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCharges_ProductChargesTypes" Association="Self.FK_ProductCharges_ProductChargesTypes">
+            <End Role="ProductChargesTypes" EntitySet="ProductChargesTypes" />
+            <End Role="ProductCharges" EntitySet="ProductCharges" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInteresRateSlab_ProductCharges" Association="Self.FK_ProductInteresRateSlab_ProductCharges">
+            <End Role="ProductCharges" EntitySet="ProductCharges" />
+            <End Role="ProductInteresRateSlab" EntitySet="ProductInteresRateSlabs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDocuments_ProductDocumentTypes" Association="Self.FK_ProductDocuments_ProductDocumentTypes">
+            <End Role="ProductDocumentTypes" EntitySet="ProductDocumentTypes" />
+            <End Role="ProductDocuments" EntitySet="ProductDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDocuments_Products" Association="Self.FK_ProductDocuments_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductDocuments" EntitySet="ProductDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductImages_Products" Association="Self.FK_ProductImages_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductImages" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductType" Association="Self.FK_Products_ProductType">
+            <End Role="ProductType" EntitySet="ProductTypes" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="BorrowerOptionQuestions" EntityType="Model.BorrowerOptionQuestion" />
+        </EntityContainer>
+        <EntityType Name="BorrowerOptionQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OptionQuestion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionId" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="QIGIEntities">
+          <EntitySetMapping Name="Activity_Log">
+            <EntityTypeMapping TypeName="Model.Activity_Log">
+              <MappingFragment StoreEntitySet="Activity_Log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="operation_name" ColumnName="operation_name" />
+                <ScalarProperty Name="page_name" ColumnName="page_name" />
+                <ScalarProperty Name="log_time" ColumnName="log_time" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="table_name" ColumnName="table_name" />
+                <ScalarProperty Name="new_details" ColumnName="new_details" />
+                <ScalarProperty Name="old_details" ColumnName="old_details" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaOfInvestmentInterests">
+            <EntityTypeMapping TypeName="Model.AreaOfInvestmentInterest">
+              <MappingFragment StoreEntitySet="AreaOfInvestmentInterest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaOfStocks">
+            <EntityTypeMapping TypeName="Model.AreaOfStock">
+              <MappingFragment StoreEntitySet="AreaOfStock">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserRoles">
+            <EntityTypeMapping TypeName="Model.AspNetUserRole">
+              <MappingFragment StoreEntitySet="AspNetUserRoles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Roles_id" ColumnName="Roles_id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="user_pic" ColumnName="user_pic" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="tax_id" ColumnName="tax_id" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+                <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+                <ScalarProperty Name="last_login" ColumnName="last_login" />
+                <ScalarProperty Name="last_change_pwd_date" ColumnName="last_change_pwd_date" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="insurance_agent" ColumnName="insurance_agent" />
+                <ScalarProperty Name="hearfrom" ColumnName="hearfrom" />
+                <ScalarProperty Name="profile_img" ColumnName="profile_img" />
+                <ScalarProperty Name="imageupload" ColumnName="imageupload" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+                <ScalarProperty Name="AdminApproval" ColumnName="AdminApproval" />
+                <ScalarProperty Name="AdminRejected" ColumnName="AdminRejected" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AverageInvestments">
+            <EntityTypeMapping TypeName="Model.AverageInvestment">
+              <MappingFragment StoreEntitySet="AverageInvestment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAppAms">
+            <EntityTypeMapping TypeName="Model.BAppAm">
+              <MappingFragment StoreEntitySet="BAppAm">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
+                <ScalarProperty Name="AccountManagerId" ColumnName="AccountManagerId" />
+                <ScalarProperty Name="ReviewerID" ColumnName="ReviewerID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="BorrowerId" ColumnName="BorrowerId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowerApplications">
+            <EntityTypeMapping TypeName="Model.BorrowerApplication">
+              <MappingFragment StoreEntitySet="BorrowerApplication">
+                <ScalarProperty Name="BorrowerApplicationID" ColumnName="BorrowerApplicationID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CompleteAddress" ColumnName="CompleteAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="TotalNoofApplication" ColumnName="TotalNoofApplication" />
+                <ScalarProperty Name="ApplicationNumber" ColumnName="ApplicationNumber" />
+                <ScalarProperty Name="BorrowerSubmittedQuestionsID" ColumnName="BorrowerSubmittedQuestionsID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Descripation" ColumnName="Descripation" />
+                <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+                <ScalarProperty Name="RejectedStatus" ColumnName="RejectedStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowerApplicationCollections">
+            <EntityTypeMapping TypeName="Model.BorrowerApplicationCollection">
+              <MappingFragment StoreEntitySet="BorrowerApplicationCollection">
+                <ScalarProperty Name="BorrowerAppCollectionId" ColumnName="BorrowerAppCollectionId" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowerAssets">
+            <EntityTypeMapping TypeName="Model.BorrowerAsset">
+              <MappingFragment StoreEntitySet="BorrowerAssets">
+                <ScalarProperty Name="BorrowerAssetID" ColumnName="BorrowerAssetID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="BorrowerApplicationID" ColumnName="BorrowerApplicationID" />
+                <ScalarProperty Name="AssetsType" ColumnName="AssetsType" />
+                <ScalarProperty Name="AssetsValue" ColumnName="AssetsValue" />
+                <ScalarProperty Name="OwnerShipPercentage" ColumnName="OwnerShipPercentage" />
+                <ScalarProperty Name="Assets" ColumnName="Assets" />
+                <ScalarProperty Name="AssetFile" ColumnName="AssetFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowerDocuments">
+            <EntityTypeMapping TypeName="Model.BorrowerDocument">
+              <MappingFragment StoreEntitySet="BorrowerDocuments">
+                <ScalarProperty Name="BorrowerDocumentID" ColumnName="BorrowerDocumentID" />
+                <ScalarProperty Name="UplaodedDocument" ColumnName="UplaodedDocument" />
+                <ScalarProperty Name="UploadedDocumentPath" ColumnName="UploadedDocumentPath" />
+                <ScalarProperty Name="BorrowerApplicationID" ColumnName="BorrowerApplicationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowerQuestions">
+            <EntityTypeMapping TypeName="Model.BorrowerQuestion">
+              <MappingFragment StoreEntitySet="BorrowerQuestions">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Control" ColumnName="Control" />
+                <ScalarProperty Name="BorrowerQuestionID" ColumnName="BorrowerQuestionID" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChargesSlabs">
+            <EntityTypeMapping TypeName="Model.ChargesSlab">
+              <MappingFragment StoreEntitySet="ChargesSlab">
+                <ScalarProperty Name="ChargesSlabID" ColumnName="ChargesSlabID" />
+                <ScalarProperty Name="SlabName" ColumnName="SlabName" />
+                <ScalarProperty Name="MinAmount" ColumnName="MinAmount" />
+                <ScalarProperty Name="MaxAmount" ColumnName="MaxAmount" />
+                <ScalarProperty Name="ChargesAmount" ColumnName="ChargesAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CollateralTypes">
+            <EntityTypeMapping TypeName="Model.CollateralType">
+              <MappingFragment StoreEntitySet="CollateralType">
+                <ScalarProperty Name="CollateralTypeID" ColumnName="CollateralTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ColleteralDetail" ColumnName="ColleteralDetail" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Model.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GuardianName" ColumnName="GuardianName" />
+                <ScalarProperty Name="MartialStatus" ColumnName="MartialStatus" />
+                <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
+                <ScalarProperty Name="KidsCount" ColumnName="KidsCount" />
+                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+                <ScalarProperty Name="TempareryAddress" ColumnName="TempareryAddress" />
+                <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+                <ScalarProperty Name="NTN" ColumnName="NTN" />
+                <ScalarProperty Name="Process" ColumnName="Process" />
+                <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinancialAdvisors">
+            <EntityTypeMapping TypeName="Model.FinancialAdvisor">
+              <MappingFragment StoreEntitySet="FinancialAdvisor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvesterQuestions">
+            <EntityTypeMapping TypeName="Model.InvesterQuestion">
+              <MappingFragment StoreEntitySet="InvesterQuestions">
+                <ScalarProperty Name="InvesterQuestionsID" ColumnName="InvesterQuestionsID" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Control" ColumnName="Control" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorApplications">
+            <EntityTypeMapping TypeName="Model.InvestorApplication">
+              <MappingFragment StoreEntitySet="InvestorApplication">
+                <ScalarProperty Name="InvestorApplicationID" ColumnName="InvestorApplicationID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CompleteAddress" ColumnName="CompleteAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="TotalNoofApplication" ColumnName="TotalNoofApplication" />
+                <ScalarProperty Name="ApplicationNumber" ColumnName="ApplicationNumber" />
+                <ScalarProperty Name="InvestorSubmittedQuestionsID" ColumnName="InvestorSubmittedQuestionsID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Descripation" ColumnName="Descripation" />
+                <ScalarProperty Name="RejectedStatus" ColumnName="RejectedStatus" />
+                <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorApplicationCollections">
+            <EntityTypeMapping TypeName="Model.InvestorApplicationCollection">
+              <MappingFragment StoreEntitySet="InvestorApplicationCollection">
+                <ScalarProperty Name="InvestorAppCollectionId" ColumnName="InvestorAppCollectionId" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorDocuments">
+            <EntityTypeMapping TypeName="Model.InvestorDocument">
+              <MappingFragment StoreEntitySet="InvestorDocuments">
+                <ScalarProperty Name="InvestorDocumentID" ColumnName="InvestorDocumentID" />
+                <ScalarProperty Name="UploadedDocument" ColumnName="UploadedDocument" />
+                <ScalarProperty Name="UploadDocumentPath" ColumnName="UploadDocumentPath" />
+                <ScalarProperty Name="InvestorApplicationID" ColumnName="InvestorApplicationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorFeedbackHistories">
+            <EntityTypeMapping TypeName="Model.InvestorFeedbackHistory">
+              <MappingFragment StoreEntitySet="InvestorFeedbackHistory">
+                <ScalarProperty Name="InvestorFeedBackID" ColumnName="InvestorFeedBackID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="InversotApplicationID" ColumnName="InversotApplicationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorFunds">
+            <EntityTypeMapping TypeName="Model.InvestorFund">
+              <MappingFragment StoreEntitySet="InvestorFunds">
+                <ScalarProperty Name="InvestorFundID" ColumnName="InvestorFundID" />
+                <ScalarProperty Name="InvestAmount" ColumnName="InvestAmount" />
+                <ScalarProperty Name="IntrestRate" ColumnName="IntrestRate" />
+                <ScalarProperty Name="InvestmentType" ColumnName="InvestmentType" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="InvestorApplicationID" ColumnName="InvestorApplicationID" />
+                <ScalarProperty Name="InvestmentPeriod" ColumnName="InvestmentPeriod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorOptionQuestions">
+            <EntityTypeMapping TypeName="Model.InvestorOptionQuestion">
+              <MappingFragment StoreEntitySet="InvestorOptionQuestion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OptionQuestion" ColumnName="OptionQuestion" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorQualifications">
+            <EntityTypeMapping TypeName="Model.InvestorQualification">
+              <MappingFragment StoreEntitySet="InvestorQualification">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Income" ColumnName="Income" />
+                <ScalarProperty Name="NetWorth" ColumnName="NetWorth" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="BusinessorFinancialExperience" ColumnName="BusinessorFinancialExperience" />
+                <ScalarProperty Name="DegreeandDesignations" ColumnName="DegreeandDesignations" />
+                <ScalarProperty Name="CurrentNoOfProperties" ColumnName="CurrentNoOfProperties" />
+                <ScalarProperty Name="CurrentTypesOfProperties" ColumnName="CurrentTypesOfProperties" />
+                <ScalarProperty Name="PriorNoOfProperties" ColumnName="PriorNoOfProperties" />
+                <ScalarProperty Name="PriorTypesOfProperties" ColumnName="PriorTypesOfProperties" />
+                <ScalarProperty Name="RealEstateExperience" ColumnName="RealEstateExperience" />
+                <ScalarProperty Name="InvestmentValue" ColumnName="InvestmentValue" />
+                <ScalarProperty Name="PreviousBusiness" ColumnName="PreviousBusiness" />
+                <ScalarProperty Name="Memberof" ColumnName="Memberof" />
+                <ScalarProperty Name="HomebuyersofGA" ColumnName="HomebuyersofGA" />
+                <ScalarProperty Name="InvestorID" ColumnName="InvestorID" />
+                <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ConfirmSignature" ColumnName="ConfirmSignature" />
+                <ScalarProperty Name="ConfirmDate" ColumnName="ConfirmDate" />
+                <ScalarProperty Name="RelationshipWith" ColumnName="RelationshipWith" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorQualificationApplications">
+            <EntityTypeMapping TypeName="Model.InvestorQualificationApplication">
+              <MappingFragment StoreEntitySet="InvestorQualificationApplication">
+                <ScalarProperty Name="InvestorQualificationID" ColumnName="InvestorQualificationID" />
+                <ScalarProperty Name="InvestorID" ColumnName="InvestorID" />
+                <ScalarProperty Name="ApplicationNumber" ColumnName="ApplicationNumber" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestorSubmittedQuestions">
+            <EntityTypeMapping TypeName="Model.InvestorSubmittedQuestion">
+              <MappingFragment StoreEntitySet="InvestorSubmittedQuestions">
+                <ScalarProperty Name="InvestorSubmittedQuestionsID" ColumnName="InvestorSubmittedQuestionsID" />
+                <ScalarProperty Name="InvestorQuestionID" ColumnName="InvestorQuestionID" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCharges">
+            <EntityTypeMapping TypeName="Model.ProductCharge">
+              <MappingFragment StoreEntitySet="ProductCharges">
+                <ScalarProperty Name="PChargesID" ColumnName="PChargesID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="PChargesTypeID" ColumnName="PChargesTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductChargesTypes">
+            <EntityTypeMapping TypeName="Model.ProductChargesType">
+              <MappingFragment StoreEntitySet="ProductChargesTypes">
+                <ScalarProperty Name="PChargesTypeID" ColumnName="PChargesTypeID" />
+                <ScalarProperty Name="ChargesName" ColumnName="ChargesName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ChargesSlabID" ColumnName="ChargesSlabID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDocuments">
+            <EntityTypeMapping TypeName="Model.ProductDocument">
+              <MappingFragment StoreEntitySet="ProductDocuments">
+                <ScalarProperty Name="ProductDocumentID" ColumnName="ProductDocumentID" />
+                <ScalarProperty Name="ProductDocumentTypeID" ColumnName="ProductDocumentTypeID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UploadedDocument" ColumnName="UploadedDocument" />
+                <ScalarProperty Name="UploadedDocumentPath" ColumnName="UploadedDocumentPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDocumentTypes">
+            <EntityTypeMapping TypeName="Model.ProductDocumentType">
+              <MappingFragment StoreEntitySet="ProductDocumentTypes">
+                <ScalarProperty Name="ProductDocumentTypeID" ColumnName="ProductDocumentTypeID" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImages">
+            <EntityTypeMapping TypeName="Model.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImages">
+                <ScalarProperty Name="ProductImageID" ColumnName="ProductImageID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductInteresRateSlabs">
+            <EntityTypeMapping TypeName="Model.ProductInteresRateSlab">
+              <MappingFragment StoreEntitySet="ProductInteresRateSlab">
+                <ScalarProperty Name="PIntrestRateSlab" ColumnName="PIntrestRateSlab" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="PChargesID" ColumnName="PChargesID" />
+                <ScalarProperty Name="IntrestRate" ColumnName="IntrestRate" />
+                <ScalarProperty Name="Tenor" ColumnName="Tenor" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="Model.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="RejectedBy" ColumnName="RejectedBy" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="RateofReturn" ColumnName="RateofReturn" />
+                <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+                <ScalarProperty Name="MinimumPeriod" ColumnName="MinimumPeriod" />
+                <ScalarProperty Name="MaximumPeriod" ColumnName="MaximumPeriod" />
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="RejectedStatus" ColumnName="RejectedStatus" />
+                <ScalarProperty Name="AreaOfStock" ColumnName="AreaOfStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="Model.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecurityTypes">
+            <EntityTypeMapping TypeName="Model.SecurityType">
+              <MappingFragment StoreEntitySet="SecurityType">
+                <ScalarProperty Name="ProductSecurityID" ColumnName="ProductSecurityID" />
+                <ScalarProperty Name="SecurityName" ColumnName="SecurityName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="SecurityDetail" ColumnName="SecurityDetail" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesOfStocks">
+            <EntityTypeMapping TypeName="Model.TypesOfStock">
+              <MappingFragment StoreEntitySet="TypesOfStocks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypicalYields">
+            <EntityTypeMapping TypeName="Model.TypicalYield">
+              <MappingFragment StoreEntitySet="TypicalYield">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowerSubmittedQuestions">
+            <EntityTypeMapping TypeName="Model.BorrowerSubmittedQuestion">
+              <MappingFragment StoreEntitySet="BorrowerSubmittedQuestions">
+                <ScalarProperty Name="BorrowerSubmittedQuestionsID" ColumnName="BorrowerSubmittedQuestionsID" />
+                <ScalarProperty Name="BorrowerQuestionID" ColumnName="BorrowerQuestionID" />
+                <ScalarProperty Name="Answers" ColumnName="Answers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowerOptionQuestions">
+            <EntityTypeMapping TypeName="Model.BorrowerOptionQuestion">
+              <MappingFragment StoreEntitySet="BorrowerOptionQuestion">
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="OptionQuestion" ColumnName="OptionQuestion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

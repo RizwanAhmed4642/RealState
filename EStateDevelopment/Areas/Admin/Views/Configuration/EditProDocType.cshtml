@@ -1,0 +1,59 @@
+﻿@model EStateDevelopment.Data.ProductDocumentType
+@{
+    ViewBag.Title = "EditProDocType";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<body>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card stacked-form" style="border:none; min-height:300px;">
+                @using (Html.BeginForm("EditProDocType", "Configuration", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                 {
+                    @Html.AntiForgeryToken()
+
+
+
+                    <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                        <div class="card-header" style="background-color:whitesmoke">
+                            <div class="row">
+                                <div class="col-md-12 adj-gridhead ">
+                                    <h4>Eidt Product Document Type<small>(Administator)</small></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ProductDocumentTypeID)
+
+                        <div class="form-group">
+                            <div class="text-center">
+                                <div class="col-md-6  mr-auto ml-auto">
+                                    @Html.EditorFor(model => model.DocumentType, new { htmlAttributes = new { @class = "form-control", placeholder = "Product Doc Type Name" } })
+                                    @Html.ValidationMessageFor(model => model.DocumentType, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="text-center">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-fill btn-outline-dark btn-wd" style="background-color:black;color:white">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                <div class="col-md-3">
+                    @Html.ActionLink("Back to List", "ListProductDocType")
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,631 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C8CBEEE5-9D0A-46E6-ABE8-C48342DFB72D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EStateDevelopment</RootNamespace>
+    <AssemblyName>EStateDevelopment</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Images\facepic.jpg" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\demo.css" />
+    <Content Include="assets\css\jquery-ui.css" />
+    <Content Include="assets\css\light-bootstrap-dashboard790f.css" />
+    <Content Include="assets\DetailsPage.css" />
+    <Content Include="assets\font-awesome.min.css" />
+    <Content Include="assets\img\apple-icon.png" />
+    <Content Include="assets\img\bg4.jpg" />
+    <Content Include="assets\img\bg5.jpg" />
+    <Content Include="assets\img\blog-1.jpg" />
+    <Content Include="assets\img\blog-2.jpg" />
+    <Content Include="assets\img\blog-3.jpg" />
+    <Content Include="assets\img\blog-4.jpg" />
+    <Content Include="assets\img\default-avatar.png" />
+    <Content Include="assets\img\favicon.html" />
+    <Content Include="assets\img\flags\AU.png" />
+    <Content Include="assets\img\flags\BR.png" />
+    <Content Include="assets\img\flags\DE.png" />
+    <Content Include="assets\img\flags\GB.png" />
+    <Content Include="assets\img\flags\RO.png" />
+    <Content Include="assets\img\flags\US.png" />
+    <Content Include="assets\img\full-screen-image-2.jpg" />
+    <Content Include="assets\img\full-screen-image-3.jpg" />
+    <Content Include="assets\img\sidebar-1.jpg" />
+    <Content Include="assets\img\sidebar-3.jpg" />
+    <Content Include="assets\img\sidebar-4.jpg" />
+    <Content Include="assets\img\sidebar-5.jpg" />
+    <Content Include="assets\js\core\bootstrap.min.js" />
+    <Content Include="assets\js\core\jquery.3.2.1.min.js" />
+    <Content Include="assets\js\core\popper.min.js" />
+    <Content Include="assets\js\demo.js" />
+    <Content Include="assets\js\light-bootstrap-dashboard790f.js" />
+    <Content Include="assets\js\plugins\bootstrap-datetimepicker.js" />
+    <Content Include="assets\js\plugins\bootstrap-selectpicker.js" />
+    <Content Include="assets\js\plugins\bootstrap-switch.js" />
+    <Content Include="assets\js\plugins\bootstrap-table.js" />
+    <Content Include="assets\js\plugins\bootstrap-tagsinput.js" />
+    <Content Include="assets\js\plugins\chartist.min.js" />
+    <Content Include="assets\js\plugins\fullcalendar.min.js" />
+    <Content Include="assets\js\plugins\jquery-jvectormap.js" />
+    <Content Include="assets\js\plugins\jquery.bootstrap-wizard.js" />
+    <Content Include="assets\js\plugins\jquery.dataTables.min.js" />
+    <Content Include="assets\js\plugins\jquery.sharrre.js" />
+    <Content Include="assets\js\plugins\jquery.validate.min.js" />
+    <Content Include="assets\js\plugins\moment.min.js" />
+    <Content Include="assets\js\plugins\nouislider.js" />
+    <Content Include="assets\js\plugins\sweetalert2.min.js" />
+    <Content Include="assets\Profile_page.css" />
+    <Content Include="assets\style.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\styling.css" />
+    <Content Include="Data\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\Img1.jpg" />
+    <Content Include="Images\Img2.jpg" />
+    <Content Include="Images\Img3.jpg" />
+    <Content Include="Images\products\p1.jpg" />
+    <Content Include="Images\products\p2.jpg" />
+    <Content Include="Images\products\p3.jpg" />
+    <Content Include="Images\products\s2.jpg" />
+    <Content Include="Images\products\s3.jpg" />
+    <Content Include="Images\products\s4.jpg" />
+    <Content Include="Images\products\s5.jpg" />
+    <Content Include="Images\products\s6.jpg" />
+    <Content Include="Images\products\s7.jpg" />
+    <Content Include="Images\products\s8.jpg" />
+    <Content Include="Images\products\s9.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Investors\Views\web.config" />
+    <Content Include="Areas\Investors\Views\Investor\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\AddAnswer.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Admin\AddRole.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ListRole.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ListUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\UserProfile.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\AddInvestorsApplication.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\Questionsdsd.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\d.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\AddInvestorFunds.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\ListInvestorFunds.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\AddInvestorDocuments.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\AddInvestorFeedback.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\ListInvestorFeedback.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\AddFillFundDetails.cshtml" />
+    <Content Include="Areas\Borrower\Views\web.config" />
+    <Content Include="Areas\Borrower\Views\Borrowers\AddAnswer.cshtml" />
+    <Content Include="Areas\Borrower\Views\Borrowers\AddApplication.cshtml" />
+    <Content Include="Areas\Borrower\Views\Borrowers\AddBorrowerDocuments.cshtml" />
+    <Content Include="Areas\Borrower\Views\Borrowers\DetailApplication.cshtml" />
+    <Content Include="Areas\Borrower\Views\Borrowers\AddBorrowerDocumentsd.cshtml" />
+    <Content Include="Areas\Borrower\Views\Borrowers\AddBorrowerAssets.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\ListInvestorsApplication.cshtml" />
+    <Content Include="Areas\Borrower\Views\Borrowers\ListBorrowerApplication.cshtml" />
+    <Content Include="Areas\Reviewers\Views\web.config" />
+    <Content Include="Areas\Borrower\Views\Borrowers\ProductsAccordingToAnswer.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\ProductsAccordingToAnswer.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\web.config" />
+    <Content Include="Areas\PropertyGuru\Views\Account\Register.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Dashboard\Home.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Product\AddProduct.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Product\AttachDocument.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Product\Dashboard.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Product\LiveProducts.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Product\PendingAssesment.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Product\ProductApplicationStagewise.cshtml" />
+    <Content Include="Areas\PropertyGuru\Doc\Mudassar_Khan.pdf" />
+    <Content Include="Areas\Investors\Views\Investor\InvestorProductDetailPage.cshtml" />
+    <Content Include="Areas\Borrower\Views\Borrowers\BorrowerProductDetailPage.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\ProductConfiguration\CollateralType.cshtml" />
+    <Content Include="Areas\Reviewers\Views\Reviewer\Index.cshtml" />
+    <Content Include="Areas\Reviewers\Views\Reviewer\InvestorAssignAccountManagerForReviewAndAssignment.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\Dashboard.cshtml" />
+    <Content Include="Areas\AccountManager\Views\web.config" />
+    <Content Include="Areas\AccountManager\Views\Home\Correspondance.cshtml" />
+    <Content Include="Areas\AccountManager\Views\Home\LendingDashboard.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\ProductType.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\ProductConfiguration\ChargesSlab.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\ProductConfiguration\ProductCharges.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\ProductConfiguration\ProductChargesType.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\ProductConfiguration\ProductInvestRateSlab.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\SecurityType\security.cshtml" />
+    <Content Include="Areas\LegalTeams\Views\web.config" />
+    <Content Include="Areas\LegalTeams\Views\LegalTeam\Dashboard.cshtml" />
+    <Content Include="Areas\LegalTeams\Views\LegalTeam\Correspondance.cshtml" />
+    <Content Include="Areas\AccountManager\Views\Home\ContractDrafting.cshtml" />
+    <Content Include="Areas\AccountManager\Views\Home\CustomerIDCreation.cshtml" />
+    <Content Include="Areas\AccountManager\Views\Home\FundsAvailibilityRequest.cshtml" />
+    <Content Include="Areas\AccountManager\Views\Home\Verification.cshtml" />
+    <Content Include="Areas\CreditCommittee\Views\Home\Dashboard.cshtml" />
+    <Content Include="Areas\CreditCommittee\Views\Home\Home.cshtml" />
+    <Content Include="Areas\CreditCommittee\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Configuration\AddQuestion.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\UpdateRoles.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Product\ApplicationDetails.cshtml" />
+    <Content Include="Areas\PropertyGuru\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\AddBorrowerQuestion.cshtml" />
+    <Content Include="Areas\Admin\Views\ActivityLog\UserActivityLog.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\AddInvestorQuestionOld.cshtml" />
+    <Content Include="Areas\Admin\Views\ActivityLog\AdminActivityLog.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\InvestorQuestion.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\UpdateInvestorQuestion.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\BorrowerQuestion.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\UpdateBorrowerQuestion.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\BlockUserList.cshtml" />
+    <Content Include="Areas\Reviewers\Views\Reviewer\BorrowerAssignAccountManagerForReviewAndAssignment.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\PPGuruusers.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\AddProductDocType.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\AddProductType.cshtml" />
+    <Content Include="Areas\Admin\Views\Applications\BoApplicationDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Applications\BorrowerApplication.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\EditProDocType.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\EditProType.cshtml" />
+    <Content Include="Areas\Admin\Views\Applications\InvApplicationDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Applications\InvestorApplications.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\ListProductDocType.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\ListProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\ListProductType.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\AddAreaOfStouck.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\ListAreaOfStock.cshtml" />
+    <Content Include="Areas\Admin\Views\Configuration\UpdateAreaOfStock.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\PendingProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\ApprovedProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\RejectedProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\PropertyGuru\PendingGuru.cshtml" />
+    <Content Include="Areas\Admin\Views\PropertyGuru\ApprovedGuru.cshtml" />
+    <Content Include="Areas\Admin\Views\PropertyGuru\RejectedGuru.cshtml" />
+    <Content Include="Areas\Admin\Views\Applications\ApprovedInvApplications.cshtml" />
+    <Content Include="Areas\Admin\Views\Applications\RejectedInvApplications.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\InvQualification.cshtml" />
+    <Content Include="Areas\Investors\Views\Investor\updateInvQualification.cshtml" />
+    <Content Include="Areas\Public\Views\Home\userprofile.cshtml" />
+    <EntityDeploy Include="Data\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Investor\pendingInvestor.cshtml" />
+    <Content Include="Areas\Admin\Views\Investor\AllInvestor.cshtml" />
+    <Content Include="Areas\Admin\Views\Investor\Applications.cshtml" />
+    <Content Include="Areas\Admin\Views\Investor\InvUserDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Investor\Qualification.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\HomeIndex.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\AccountManager\AccountManagerAreaRegistration.cs" />
+    <Compile Include="Areas\AccountManager\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\AdminActivity_Logs.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ActivityLogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ApplicationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ConfigurationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InvestorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PropertyGuruController.cs" />
+    <Compile Include="Areas\Admin\EncryptDecrypt.cs" />
+    <Compile Include="Areas\Admin\ViewModel\AreaOfStockViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModel\RoleViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModel\UserViewModel.cs" />
+    <Compile Include="Areas\Borrower\BorrowerAreaRegistration.cs" />
+    <Compile Include="Areas\Borrower\Controllers\BorrowersController.cs" />
+    <Compile Include="Areas\Borrower\ViewModel\BorrowerApplicationViewModel.cs" />
+    <Compile Include="Areas\Borrower\ViewModel\BorrowerProductViewModel.cs" />
+    <Compile Include="Areas\Borrower\ViewModel\BorrowerSubmittedQuestionsViewModel.cs" />
+    <Compile Include="Areas\Borrower\ViewModel\QuestionViewModel.cs" />
+    <Compile Include="Areas\CreditCommittee\Controllers\HomeController.cs" />
+    <Compile Include="Areas\CreditCommittee\CreditCommitteeAreaRegistration.cs" />
+    <Compile Include="Areas\Investors\Controllers\InvestorController.cs" />
+    <Compile Include="Areas\Investors\InvestorsAreaRegistration.cs" />
+    <Compile Include="Areas\Investors\ViewModel\InvestorApplicationViewModel.cs" />
+    <Compile Include="Areas\Investors\ViewModel\InvestorProductViewModel.cs" />
+    <Compile Include="Areas\Investors\ViewModel\InvestorSubmittedQuestionsViewModel.cs" />
+    <Compile Include="Areas\Investors\ViewModel\InvestorQuestionViewModel.cs" />
+    <Compile Include="Areas\LegalTeams\Controllers\LegalTeamController.cs" />
+    <Compile Include="Areas\LegalTeams\LegalTeamsAreaRegistration.cs" />
+    <Compile Include="Areas\PropertyGuru\Controllers\AccountController.cs" />
+    <Compile Include="Areas\PropertyGuru\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\PropertyGuru\Controllers\ProductConfigurationController.cs" />
+    <Compile Include="Areas\PropertyGuru\Controllers\ProductController.cs" />
+    <Compile Include="Areas\PropertyGuru\Controllers\SecurityTypeController.cs" />
+    <Compile Include="Areas\PropertyGuru\PropertyGuruAreaRegistration.cs" />
+    <Compile Include="Areas\Public\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
+    <Compile Include="Areas\Reviewers\Controllers\ReviewerController.cs" />
+    <Compile Include="Areas\Reviewers\ReviewersAreaRegistration.cs" />
+    <Compile Include="Areas\Reviewers\ViewModel\BorrowerApplicationViewModel.cs" />
+    <Compile Include="Areas\Reviewers\ViewModel\UserViewModel.cs" />
+    <Compile Include="Configuration\EncryptDecrypt.cs" />
+    <Compile Include="Configuration\UserSecured.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\Activity_Log.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ApplicationModel.cs" />
+    <Compile Include="Data\AreaOfInvestmentInterest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AreaOfStock.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AspNetRole.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AspNetUser.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AspNetUserClaim.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AspNetUserLogin.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AspNetUserModel.cs" />
+    <Compile Include="Data\AspNetUserRole.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AverageInvestment.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BAppAm.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BorrowerApplication.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BorrowerApplicationCollection.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BorrowerAsset.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BorrowerDocument.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BorrowerOptionQuestion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BorrowerQuestion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BorrowerQuestionModel.cs" />
+    <Compile Include="Data\BorrowerSubmittedQuestion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChargesSlab.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChargesSlabModel.cs" />
+    <Compile Include="Data\CollateralType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ColletralTypeModel.cs" />
+    <Compile Include="Data\Customer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EmailSend.cs" />
+    <Compile Include="Data\FinancialAdvisor.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvesterQuestion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorApplication.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorApplicationCollection.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorDocument.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorFeedbackHistory.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorFund.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorOptionQuestion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorQualification.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorQualificationApplication.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InvestorQualificationModel.cs" />
+    <Compile Include="Data\InvestorQuestionsModel.cs" />
+    <Compile Include="Data\InvestorSubmittedQuestion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Product.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductCharge.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductChargesModel.cs" />
+    <Compile Include="Data\ProductChargesType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductChargesTypesModel.cs" />
+    <Compile Include="Data\ProductDocument.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductDocumentType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductDocumentTypeModel.cs" />
+    <Compile Include="Data\ProductImage.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductInteresRateSlab.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductInvestRateSlabModel.cs" />
+    <Compile Include="Data\ProductionModel.cs" />
+    <Compile Include="Data\ProductModel.cs" />
+    <Compile Include="Data\ProductType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductTypeModel.cs" />
+    <Compile Include="Data\PropertyGuruUser.cs" />
+    <Compile Include="Data\SecurityType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SecurityTypeModel.cs" />
+    <Compile Include="Data\TypesOfStock.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TypicalYield.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Public\Views\web.config" />
+    <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Public\Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Shared\_Layout-Admin.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\AccountManager\Data\" />
+    <Folder Include="Areas\AccountManager\Views\Shared\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Borrower\Data\" />
+    <Folder Include="Areas\Borrower\Views\Shared\" />
+    <Folder Include="Areas\CreditCommittee\Data\" />
+    <Folder Include="Areas\CreditCommittee\Views\Shared\" />
+    <Folder Include="Areas\Investors\Data\" />
+    <Folder Include="Areas\Investors\Views\Shared\" />
+    <Folder Include="Areas\LegalTeams\Data\" />
+    <Folder Include="Areas\LegalTeams\Views\Default\" />
+    <Folder Include="Areas\LegalTeams\Views\Shared\" />
+    <Folder Include="Areas\PropertyGuru\Data\" />
+    <Folder Include="Areas\PropertyGuru\Views\Admin\" />
+    <Folder Include="Areas\PropertyGuru\Views\Shared\" />
+    <Folder Include="Areas\Public\Data\" />
+    <Folder Include="Areas\Public\Views\Shared\" />
+    <Folder Include="Areas\Reviewers\Data\" />
+    <Folder Include="Areas\Reviewers\Views\Shared\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52317</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52317/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

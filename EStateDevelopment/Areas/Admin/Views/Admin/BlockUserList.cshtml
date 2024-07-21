@@ -1,0 +1,94 @@
+﻿@model IEnumerable<EStateDevelopment.Areas.Admin.ViewModel.UserViewModel>
+@{
+    ViewBag.Title = "ListUser";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+
+
+        $('#userdatatables').DataTable();
+    });
+    function ConfirmBlock() {
+        return confirm('Are you sure you want to Block?');
+    }
+    function ConfirmUnBlock() {
+        return confirm('Are you sure you want to UnBlock?');
+    }
+</script>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h3 class="h3center">All Existing Users</h3>
+            @if (TempData["response"] != null)
+            {
+                <div class="alert alert-success" id="msgalert">
+                    @TempData["response"].ToString()
+                </div>
+            }
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card data-tables">
+                    <div class="card-body table-striped table-no-bordered table-hover dataTable dtr-inline table-full-width">
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        </div>
+                        <div class="fresh-datatables">
+                            <table id="userdatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>SER NO</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Role Name</th>
+                                        <th>Mobile</th>
+                                        <th>NationalID</th>
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                @{int i = 1;}
+                                <tbody>
+                                    <tr>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>@item.firstname</td>
+                                            <td>@item.lastname</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.RoleName</td>
+                                            <td>@item.mobile</td>
+                                            <td>@item.NationalID</td>
+
+
+                                            <td>
+                                                
+                                                <a class="btn btn-link btn-warning edit" onclick="ConfirmBlock()? location.href='@Url.Action("UnBlockUser", "Admin", new { id = item.Id })': null"><i class="fa fa-edit"></i></a> 
+                                                <a @*class="btn btn-link btn-danger remove"*@ onclick="ConfirmBlock()? location.href='@Url.Action("BlockUser", "Admin", new { id = item.Id })': null"><i class="fa fa-ban"></i></a>
+                                            </td>
+                                        </tr>
+                                        i++;
+                                    }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    setTimeout(function () {
+        $("#msgalert").hide();
+    }, 3500);
+    </script>
+

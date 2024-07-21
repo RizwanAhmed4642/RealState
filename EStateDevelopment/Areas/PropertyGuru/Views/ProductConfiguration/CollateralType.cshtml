@@ -1,0 +1,171 @@
+﻿@model EStateDevelopment.Data.CollateralType
+
+@{
+    ViewBag.Title = "CollateralType";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+
+            <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                <div class="card-header" style="background-color:whitesmoke">
+                    <h3>Collateral Types</h3>
+                </div>
+            </div>
+            @using (Html.BeginForm("CollateralType", "ProductConfiguration", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-12" style="background-color:white;">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @*mr-auto ml-auto*@
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Colllateral Name" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Start Date", id = "datetimepicker", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", placeholder = "End Date", id = "datetimepicker1", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.DropDownListFor(model => model.ProductID, (IEnumerable<SelectListItem>)ViewBag.ProductList, "------Select Product------", new { @class = "form-control form-control form-control-rounded" })
+                                @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        @*<div class="form-row">
+                        <div class="form-group col-md-6">
+
+                        </div>
+
+                    </div>*@
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.TextAreaFor(model => model.ColleteralDetail, new { @class = "form-control", placeholder = "Colletaral Details", style = "height:70px" })
+                                @Html.ValidationMessageFor(model => model.ColleteralDetail, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="col-md-3 ml-auto">
+                                    <button type="submit" value="CollateralType" class="btn btn-fill btn-outline-dark btn-wd" style="background-color:black;color:white">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>CollateralType</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ColleteralDetail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ColleteralDetail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ColleteralDetail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProductID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }*@
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#datetimepicker").datepicker({
+            dateFormat: "dd/MM/yy"
+        }).datepicker('setDate', new Date());
+
+        $("#datetimepicker1").datepicker({
+            dateFormat: "dd/MM/yy"
+        }).datepicker('setDate', new Date());
+    });
+</script>

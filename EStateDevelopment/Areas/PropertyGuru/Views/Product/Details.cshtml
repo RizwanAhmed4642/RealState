@@ -1,0 +1,282 @@
+﻿@model EStateDevelopment.Data.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+
+    <link href="~/assets/DetailsPage.css" rel="stylesheet" />
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="align-content-center">
+                    @if (TempData["response"] != null)
+                     {
+                        <div class="alert alert-danger" id="msgalert">
+                            @TempData["response"].ToString()
+                        </div>
+                     }
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="project-info-box">
+                    <div class="text-center">
+                        <b>(Product Details)</b>
+                    </div>
+                    <hr />
+                    <h4><p><b>@Html.DisplayFor(model => model.Name)</b></p></h4>
+                    <p>@Html.DisplayFor(model => model.Description)</p>
+
+                    <dl>
+                        @if (Model.ApprovalStatus == false && Model.RejectedStatus == false)
+                        {
+                            <dt>
+                                <p><b>Approval Status</b></p>
+                            </dt>
+                            <dd>
+                                <p>Pending</p>
+                            </dd>
+                        }
+                        else if (Model.ApprovalStatus == true && Model.RejectedStatus == false)
+                        {
+                            <dt>
+                                <p><b>Approval Status</b></p>
+                            </dt>
+                            <dd>
+                                <p>Approved</p>
+                            </dd>
+                        }
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Product Type</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Html.DisplayFor(model => model.ProductType)</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Created Date</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Html.DisplayFor(model => model.CreatedDate)</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Start Date</b>
+                        </dt>
+                        <dd>
+                            <p>@Html.DisplayFor(model => model.StartDate)</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>End Date</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Html.DisplayFor(model => model.EndDate)</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Area of Stock</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Html.DisplayFor(model => model.AreaOfStock)</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Maximum Period</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Html.DisplayFor(model => model.MaximumPeriod)</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Minimum Period</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Html.DisplayFor(model => model.MinimumPeriod)</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Rate of Return</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Html.DisplayFor(model => model.RateofReturn)%</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        @if (Model.PublishedDate == null)
+                        {
+                            <dt>
+                                <p><b>Published Date</b></p>
+                            </dt>
+                            <dd>
+                                <p>Not Published Yet</p>
+                            </dd>
+                        }
+                        else
+                        {
+                            <dt>
+                                <p><b>Published Date</b>
+                            </dt>
+                            <dd>
+                                <p>@Model.PublishedDate</p>
+                            </dd>
+                        }
+                    </dl>
+                </div>
+                <!-- / project-info-box -->
+                <div class="project-info-box">
+                    <div class="text-center">
+                        <b>(Product Charges Type Details)</b>
+                    </div>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Charges Type</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Model.ProductCharges.ElementAt(0).ProductChargesType.ChargesName</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>Start Date</b></p>
+                        </dt>
+                        <dd>
+                            <p>@Model.ProductCharges.ElementAt(0).ProductChargesType.StartDate</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <dl>
+                        <dt>
+                            <p><b>End Date</b>
+                        </dt>
+                        <dd>
+                            <p>@Model.ProductCharges.ElementAt(0).ProductChargesType.EndDate</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                </div>
+            </div>
+                <!-- / column -->
+
+                <div class="col-md-6">
+                    <div style="margin-top:15px;">
+                        @if (Model.ProductImages.ElementAt(0).ImagePath != null)
+                         {
+                            
+                            <img src="@Model.ProductImages.ElementAt(0).ImagePath" style="height:300px;" alt="project-image" class="rounded">
+                         }
+                    </div>
+                    <div class="project-info-box">
+                        <div class="text-center">
+                            <b>(Charges Slab Details)</b>
+                        </div>
+                        <hr />
+                        <dl>
+                            <dt>
+                                <p><b>Slab Name</b></p>
+                            </dt>
+                            <dd>
+                                <p>@Model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).SlabName</p>
+                            </dd>
+                        </dl>
+                        <hr />
+                        <dl>
+                            <dt>
+                                <p><b>Minimum Amount</b></p>
+                            </dt>
+                            <dd>
+                                <p>@Model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).MinAmount</p>
+                            </dd>
+                        </dl>
+                        <hr />
+                        <dl>
+                            <dt>
+                                <p><b>Maximum Amount</b>
+                            </dt>
+                            <dd>
+                                <p>@Model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).MaxAmount</p>
+                            </dd>
+                        </dl>
+                        <hr />
+                        <dl>
+                            <dt>
+                                <p><b>Charges Amount</b>
+                            </dt>
+                            <dd>
+                                <p>@Html.DisplayFor(model => model.ProductCharges.ElementAt(0).ProductChargesType.ChargesSlabs.ElementAt(0).ChargesAmount)</p>
+                            </dd>
+                        </dl>
+                    </div>
+                    
+
+                    <div class="project-info-box">
+                        <div class="text-center">
+                            <b>(Collateral Type Details)</b>
+                        </div>
+                        <hr />
+                        <dl>
+                            <dt>
+                                <p><b>Collateral Type</b></p>
+                            </dt>
+                            <dd>
+                                <p>@Model.CollateralTypes.ElementAt(0).Name</p>
+                            </dd>
+                        </dl>
+                        <hr />
+                        <dl>
+                            <dt>
+                                <p><b>Collateral Details</b></p>
+                            </dt>
+                            <dd>
+                                <p>@Model.CollateralTypes.ElementAt(0).ColleteralDetail</p>
+                            </dd>
+                        </dl>
+                        <hr />
+                        <dl>
+                            <dt>
+                                <p><b>Collateral StartDate</b>
+                            </dt>
+                            <dd>
+                                <p>@Model.CollateralTypes.ElementAt(0).StartDate</p>
+                            </dd>
+                        </dl>
+                        <hr />
+                        <dl>
+                            <dt>
+                                <p><b>Collateral EndDate</b>
+                            </dt>
+                            <dd>
+                                <p>@Model.CollateralTypes.ElementAt(0).EndDate</p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+    

@@ -1,0 +1,222 @@
+﻿@model EStateDevelopment.Data.Product
+@{
+    ViewBag.Title = "PendingAssesment";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#table_1').DataTable();
+        $('#table_2').DataTable();
+    });
+
+    function myFunction() {
+
+        var x = document.getElementById("xyz");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $("#xyz").css("width", "99%");
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+</script>
+
+
+    <div class="container">
+        <div class="content">
+
+            <div class="card stacked-form" style="border:none;">
+
+                <div class="card text-center" style="background-color:whitesmoke;border:none;">
+                    <div class="card-header" style="background-color:whitesmoke">
+                        <div class="row">
+                            <div class="col-md-12 adj-gridhead ">
+                                <h4>Penidng Assesments 360 View <small>(Property Guru)</small></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="background-color:white; border-style:hidden">
+                   
+                        <table class="table" id="table_1" cellspacing="0" width="100%" style="width:100%;">
+                            <thead class="thead-light" style="background-color:whitesmoke">
+                                <tr>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Product Type</th>
+                                    <th scope="col">Product Slab</th>
+                                    <th scope="col">Rate of Return</th>
+                                    <th scope="col">Tenure(Y)</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">View Details</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ABC</td>
+                                    <td>Lon term</td>
+                                    <td>200k-400k</td>
+                                    <td>12%</td>
+                                    <td>2-5</td>
+                                    <td>Pending</td>
+                                    <th class="cp">Select</th>
+                                </tr>
+                                <tr>
+
+                                    <td>ABC</td>
+                                    <td>Lon term</td>
+                                    <td>200k-400k</td>
+                                    <td>12%</td>
+                                    <td>2-5</td>
+                                    <td>Approved</td>
+                                    <th class="cp">Select</th>
+                                </tr>
+                                <tr>
+
+                                    <td>ABC</td>
+                                    <td>Lon term</td>
+                                    <td>200k-400k</td>
+                                    <td>12%</td>
+                                    <td>2-5</td>
+                                    <td>Pending</td>
+                                    <th class="cp">Select</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                 
+                </div>
+
+                <br/>
+                <br/>
+
+                    <div class="col-md-12" style="background-color:white;">
+                        <form>
+                            <div class="form-group">
+                                <div class="col-md-6 mr-auto ml-auto">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Product Name" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input id="datetimepicker" type="text" class="form-control datetimepicker" placeholder="Start Date">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input @*id="datetimepicker_2"*@ type="text" class="form-control datetimepicker" placeholder="Closing Date" />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Product Minimum Investment" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6" style="margin-top:5px;">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Product Maximun Investment" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Maximium Period</option>
+                                        <option>A</option>
+                                        <option>Pending</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Minimum Period</option>
+                                        <option>Approved</option>
+                                        <option>Pending</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    @Html.EditorFor(model => model.RateofReturn, new { htmlAttributes = new { @class = "form-control", placeholder = "Rate of Return" } })
+                                    @Html.ValidationMessageFor(model => model.RateofReturn, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="file" class="form-control" id="inputAddress" placeholder="Upload Image">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <textarea class="form-control" id="inputAddress" placeholder="1234 Main St" style="height:70px;"></textarea>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <textarea class="form-control" id="inputAddress" placeholder="Product Description" style="height:70px;"></textarea>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                <br/>
+
+                    <div class="col-md-12" style="background-color:white; border-style:hidden;">
+                        <div class="row">
+                            <div class="col-md-12 adj-gridhead text-center" >
+                                <h4>Select Product's Documents <small>(Product Name)</small></h4>
+                            </div>
+                        </div>
+                       
+                        <table class="table" id="table_2" cellspacing="0" width="100%" style="width:100%;">
+                            <thead class="thead-light" style="background-color:whitesmoke">
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Image ID</th>
+                                    <th>Document Name</th>
+                                    <th>View Doc</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>456</td>
+                                    <td>8338</td>
+                                    <td>Image.png</td>
+                                    <th><a href="#" id="btnShow" onclick="myFunction()" style="color:black"><b>View</b></a></th>
+                                </tr>
+                                <tr>
+                                    <td>456</td>
+                                    <td>8338</td>
+                                    <td>Image.png</td>
+                                    <th><a href="#" id="btnShow" style="color:black"><b>View</b></a></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                <br/>
+
+                    <div class="col-md-12 " style="background-color:white;">
+                        <h4 class="text-center"><b>Document Viewer</b></h4>
+                        <div class="text-center">
+
+                            <iframe id="xyz" src="~/Areas/PropertyGuru/Doc/Mudassar_Khan.pdf" style="width:100%;height:500px;"></iframe>
+                            @*<embed id="frPDF" height="100%" width="100%" src="~/Areas/Property_Guru/Doc/Mudassar_Khan.pdf&embedded=true"></embed>*@
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    

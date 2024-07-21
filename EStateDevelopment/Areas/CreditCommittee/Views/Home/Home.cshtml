@@ -1,0 +1,238 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#table_1').DataTable();
+        $('#table_2').DataTable();
+    });
+</script>
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+
+            <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                <div class="card-header" style="background-color:whitesmoke">
+                    <h3>Application 360 View</h3>
+                </div>
+            </div>
+            <div class="col-md-12" style="background-color:white;">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Borrowing Amount">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <select id="inputState" class="form-control">
+                                <option disabled selected>Borrowing Type</option>
+                                <option>Type-1</option>
+                                <option>Type-2</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Ans of Q1">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Ans of Q2">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Ans of Q3">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Ans of Q4">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <textarea class="form-control" placeholder="Message" style="height:100px; resize:none;"></textarea>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <br />
+            <div id="line"><hr style="border: 0; clear: both; display: block; width: 96%; background-color: lightgray; height: 1px;" /></div>
+            <br />
+
+            <div class="col-md-12" style="background-color:white; border-style:hidden;">
+                <div class="text-center">
+                    <h3>Correspondance Details and Logs</h3>
+                </div>
+                <table class="table" id="table_1" cellspacing="0" width="100%" style="width:100%;">
+                    <thead class="thead-light" style="background-color:whitesmoke">
+                        <tr>
+                            <th>Contract Sr</th>
+                            <th>App ID</th>
+                            <th>Customer Name</th>
+                            <th>Customer ID</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Send Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>25</td>
+                            <td>Mr.Touseef</td>
+                            <td>97858</td>
+                            <td>touseef97</td>
+                            <td>********</td>
+                            <th><a href="#" id="btnShow" style="color:black"><b>Send</b></a></th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>25</td>
+                            <td>Mr.Touseef</td>
+                            <td>97858</td>
+                            <td>touseef97</td>
+                            <td>********</td>
+                            <th><a href="#" id="btnShow" style="color:black"><b>Send</b></a></th>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>25</td>
+                            <td>Mr.Touseef</td>
+                            <td>97858</td>
+                            <td>touseef97</td>
+                            <td>********</td>
+                            <th><a href="#" id="btnShow" style="color:black"><b>Send</b></a></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br />
+
+            <div class="col-md-12" style="background-color:white; border-style:hidden;">
+
+                <table class="table" id="table_2" cellspacing="0" width="100%" style="width:100%;">
+                    <thead class="thead-light" style="background-color:whitesmoke">
+                        <tr>
+                            <th>Contract Sr</th>
+                            <th>App ID</th>
+                            <th>Customer Name</th>
+                            <th>Customer ID</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Send Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>25</td>
+                            <td>Mr.Touseef</td>
+                            <td>97858</td>
+                            <td>touseef97</td>
+                            <td>********</td>
+                            <th><a href="#" id="btnShow" style="color:black"><b>Send</b></a></th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>25</td>
+                            <td>Mr.Touseef</td>
+                            <td>97858</td>
+                            <td>touseef97</td>
+                            <td>********</td>
+                            <th><a href="#" id="btnShow" style="color:black"><b>Send</b></a></th>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>25</td>
+                            <td>Mr.Touseef</td>
+                            <td>97858</td>
+                            <td>touseef97</td>
+                            <td>********</td>
+                            <th><a href="#" id="btnShow" style="color:black"><b>Send</b></a></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br />
+            <div id="line"><hr style="border: 0; clear: both; display: block; width: 96%; background-color: lightgray; height: 1px;" /></div>
+
+            <div class="col-md-12" style="background-color:white;">
+                <div class="text-center">
+                    <h3>Negotiations & Contract Logs</h3>
+                </div>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Contract ID">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Investment Amount">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Rate of Return">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Investment Period">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Collatroal Provided">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <select id="inputState" class="form-control">
+                                <option disabled selected>Investment Type</option>
+                                <option>Type-1</option>
+                                <option>Type-2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <textarea class="form-control" placeholder="Terms and Condition" style="height:100px; resize:none;"></textarea>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <br />
+            <div id="line"><hr style="border: 0; clear: both; display: block; width: 96%; background-color: lightgray; height: 1px;" /></div>
+
+            <div class="col-md-12 " style="background-color:white;">
+                <h4 class="text-center"><b>Contract Viewer</b></h4>
+                <div class="text-center">
+
+                    <iframe id="xyz" src="~/Areas/PropertyGuru/Doc/Mudassar_Khan.pdf" style="width:100%;height:500px; overflow-x:auto;"></iframe>
+                    @*<embed id="frPDF" height="100%" width="100%" src="~/Areas/Property_Guru/Doc/Mudassar_Khan.pdf&embedded=true"></embed>*@
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

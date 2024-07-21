@@ -1,0 +1,81 @@
+﻿@model IEnumerable<EStateDevelopment.Data.AspNetUser>
+@{
+    ViewBag.Title = "Rejected Guru";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#userdatatables').DataTable();
+    });
+
+    function ConfirmDelete() {
+        return confirm('Are you sure you want to delete?');
+    }
+    function ConfirmUpdate() {
+        return confirm('Are you sure you want to update record?');
+    }
+</script>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h3 class="h3center">All Rejected Guru Accounts</h3>
+            @if (TempData["response"] != null)
+            {
+                <div class="alert alert-success" id="msgalert">
+                    @TempData["response"].ToString()
+                </div>
+            }
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card data-tables">
+                    <div class="card-body table-striped table-no-bordered table-hover dataTable dtr-inline table-full-width">
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        </div>
+                        <div class="fresh-datatables">
+                            <table id="userdatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>SER NO</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                        <th>NationalID</th>
+                                    </tr>
+                                </thead>
+                                @{int i = 1;}
+                                <tbody>
+                                    <tr>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>@item.firstname</td>
+                                            <td>@item.lastname</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.phone</td>
+                                            <td>@item.NationalID</td>
+                                        </tr>
+                                        i++;
+                                    }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function () {
+            $("#msgalert").hide();
+        }, 3500);
+    </script>

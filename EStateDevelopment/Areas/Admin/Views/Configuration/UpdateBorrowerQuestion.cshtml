@@ -1,0 +1,71 @@
+﻿@model EStateDevelopment.Areas.Borrower.ViewModel.QuestionViewModel
+@{
+    ViewBag.Title = "UpdateInvestorQuestion";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@if (TempData["response"] != null)
+{
+    <div class="alert alert-danger" id="msgalert">
+        @TempData["response"].ToString()
+    </div>
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 ml-auto mr-auto">
+
+                    <div class="card card-wizard">
+                        <div class="card-header ">
+                            <h3 class="card-title text-center">Update Borrower Question</h3>
+                            @*<p class="card-category text-center">Split a complicated flow in multiple steps</p>*@
+                        </div>
+                        <div class="card-body ">
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+
+                                    @using (Html.BeginForm("UpdateBorrowerQuestion", "Configuration", FormMethod.Post))
+                                    {
+                                        @Html.HiddenFor(model => model.BorrowerQuestionID)
+                                        <div class="row">
+
+                                            <div class="col-md-8  col-sm-6 px-1">
+                                                <div class="form-group" style="padding:30px">
+                                                    <label>  <h4>Add Question</h4></label>
+
+                                                    <br />
+                                                    @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control", placeholder = "Add Qestion ", } })
+                                                    @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger db" })
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                 
+                                        <button type="submit" class="btn btn-info btn-fill pull-right btn-wd">Submit</button>
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function () {
+            $("#msgalert").hide();
+        }, 3500);
+    </script>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<EStateDevelopment.Data.InvestorFeedbackHistory>
+
+@{
+    ViewBag.Title = "ListInvestorFeedback";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card data-tables">
+                    <div class="card-body table-striped table-no-bordered table-hover dataTable dtr-inline table-full-width">
+                        <div class="toolbar">
+                            <div class="row">
+                                <div class="col-md-5 adj-gridhead ">
+                                    <h4>Feedback History <small>(Investor)</small></h4>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="fresh-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Serial No
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Message)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CreatedBy)
+                                        </th>
+
+                                        <th>Action</th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Message)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                                            </td>
+
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                            </td>
+                                        </tr>
+                                    }
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

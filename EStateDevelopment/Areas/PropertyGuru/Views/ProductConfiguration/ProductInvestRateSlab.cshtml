@@ -1,0 +1,65 @@
+﻿@model EStateDevelopment.Data.ProductInteresRateSlab
+
+@{
+    ViewBag.Title = "ProductInvestRateSlab";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+
+            <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                <div class="card-header" style="background-color:whitesmoke">
+                    <h3>ProductInvestRateSlab</h3>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="background-color:white;">
+                @using (Html.BeginForm("ProductInvestRateSlab", "ProductConfiguration", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.DropDownListFor(model => model.ProductID, (IEnumerable<SelectListItem>)ViewBag.ProductList, "------Select Product------", new { @class = "form-control form-control form-control-rounded" })
+                                @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.DropDownListFor(model => model.PChargesID, (IEnumerable<SelectListItem>)ViewBag.ProductChargesList, "------Select Product Charges------", new { @class = "form-control form-control form-control-rounded" })
+                                @Html.ValidationMessageFor(model => model.PChargesID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.IntrestRate, new { htmlAttributes = new { @class = "form-control", placeholder = "Interest Rate" } })
+                                @Html.ValidationMessageFor(model => model.IntrestRate, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.Tenor, new { htmlAttributes = new { @class = "form-control", placeholder = "Tenur" } })
+                                @Html.ValidationMessageFor(model => model.Tenor, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <button type="submit" value="ProductInvestRateSlab" class="btn btn-fill btn-outline-dark btn-wd" style="background-color:black;color:white;margin-top:50px;">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                }
+            </div>
+
+
+        </div>
+    </div>
+</div>

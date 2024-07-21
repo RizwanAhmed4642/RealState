@@ -1,0 +1,331 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+        $('#table_1').DataTable();
+
+        $('#table_2').DataTable();
+
+
+        $('#table_3').DataTable();
+        $('#table_4').DataTable();
+        $('#table_5').DataTable();
+
+
+        //$('#xyza').dataTable({
+        //    scrollY: '50vh',
+        //    /*scrollCollapse: true,*/
+        //    paging: false
+        //});
+
+        //$('#table_id').dataTable({
+        //    scrollY: '50vh',
+        //    scrollCollapse: true,
+        //    paging: false
+        //});
+
+
+
+        //$('#abcd').dataTable({
+        //    scrollY: '50vh',
+        //    scrollCollapse: true,
+        //    paging: false
+        //});
+
+
+        ////  $('#table_id').DataTable();
+        //  $('#table_id_2').DataTable();
+
+    });
+</script>
+<div class="row">
+    <div class="col-md-12 adj-gridhead ">
+        <h4>Cases from Credit Commettee </h4>
+    </div>
+
+    <div class="col-md-12">
+
+        <div class="card data-tables">
+            <div class="card-body table-full-width">
+                <div class="toolbar">
+                    <!--        Here you can write extra buttons/actions for the toolbar              -->
+                </div>
+                <div class="fresh-datatables" style="overflow-x:auto;">
+                    <table id="table_1" class="table" cellspacing="0" width="100%" style="width:100%">
+                        <thead class="thead-light" style="background-color:whitesmoke;font-size:small">
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Contract ID</th>
+                                <th>Rete Of Return(%)</th>
+                                <th>Period(Y)</th>
+                                <th>Loan Amount</th>
+                                <th>Installment</th>
+                                <th>For Month Of</th>
+                                <th>Missed Payment</th>
+                                <th>Due Date</th>
+                                <th>Overdue Days</th>
+                                <th>View 360</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>      
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>23</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2M</td>
+
+                                <td>20k</td>
+
+                                <td>May</td>
+                                <td>1M</td>
+                                <td>05/05/2020</td>
+                                <td>30</td>
+                                  <td> <a href="@Url.Action("Correspondance","LegalTeam",new {area="LegalTeams"})">Select</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr />
+

@@ -1,0 +1,48 @@
+﻿@model EStateDevelopment.Data.ProductType
+
+@{
+    ViewBag.Title = "ProductType";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<div class="container">
+    <div class="content">
+        <div class="card stacked-form" style="border:none; min-height:550px;">
+
+            <div class="card text-center" style="background-color:whitesmoke; border:none;">
+                <div class="card-header" style="background-color:whitesmoke">
+                    <h3>Product Type</h3>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="background-color:white;">
+
+                <div class="col-md-6 mr-auto ml-auto">
+                    @Html.EditorFor(model => model.TypeName, new { htmlAttributes = new { @class = "form-control", placeholder = "Product Type" } })
+                    @Html.ValidationMessageFor(model => model.TypeName, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                <div class="col-md-6 mr-auto ml-auto">
+                    <select id="inputState" class="form-control">
+                        <option disabled selected>Select Product</option>
+                        <option>DHA</option>
+                        <option>Bahria Town</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group" style="margin-top:50px;">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-fill btn-outline-dark btn-wd" style="background-color:black;color:white">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

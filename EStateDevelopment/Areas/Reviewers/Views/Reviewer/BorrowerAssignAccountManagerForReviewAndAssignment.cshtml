@@ -1,0 +1,129 @@
+﻿@model EStateDevelopment.Areas.Reviewers.ViewModel.BorrowerApplicationViewModel
+@{
+    ViewBag.Title = "AssignAccountManagerForReviewAndAssignment";
+    Layout = "~/Views/Shared/_Layout-Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<div class="card stacked-form">
+    <div class="card-header ">
+        <h4 class="card-title">Review & Assignment</h4>
+    </div>
+    <div class="card-body ">
+        @using (Html.BeginForm("BorrowerAssignAccountManagerForReviewAndAssignment", "Reviewer", FormMethod.Post))
+        {
+            @Html.HiddenFor(model => model.AppID)
+            <div class="row">
+                <div class="form-group col-md-5 mr-auto ml-auto">
+                    @Html.LabelFor(model => model.FirstName, "First Name")
+
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name", } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger db" })
+                </div>
+                <div class="form-group col-md-5 mr-auto ml-auto">
+                    @Html.LabelFor(model => model.LastName, "Last Name")
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name", } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger db" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5 mr-auto ml-auto">
+                    @Html.LabelFor(model => model.Email, "Email")
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email", } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger db" })
+                </div>
+                <div class="form-group col-md-5 mr-auto ml-auto">
+                    @Html.LabelFor(model => model.Mobile, "Phone No")
+                    @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone", } })
+                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger db" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-5 mr-auto ml-auto">
+
+                    <input type="text" placeholder="Invest Amount" class="form-control">
+                </div>
+                <div class="form-group col-md-5 mr-auto ml-auto">
+
+                    <input type="text" placeholder="Investment Type" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5 mr-auto ml-auto">
+
+                    <input type="text" placeholder="Selected Product" class="form-control">
+                </div>
+                <div class="form-group col-md-5 mr-auto ml-auto">
+
+                    <input type="text" placeholder="Subject" class="form-control">
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="form-group col-md-5 mr-auto ml-auto">
+                    @Html.LabelFor(model => model.Answer1, "Ans 1")
+                    @Html.EditorFor(model => model.Answer1, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone", } })
+
+                </div>
+                <div class="form-group col-md-5 mr-auto ml-auto">
+                    @Html.LabelFor(model => model.Answer2, "Ans 2")
+                    @Html.EditorFor(model => model.Answer2, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone", } })
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5 mr-auto ml-auto">
+                    @Html.LabelFor(model => model.Mobile, "Ans 3")
+                    @Html.EditorFor(model => model.Answer3, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone", } })
+
+
+                </div>
+                <div class="form-group col-md-5 mr-auto ml-auto">
+                    @Html.LabelFor(model => model.Mobile, "Ans 4")
+                    @Html.EditorFor(model => model.Answer4, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone", } })
+
+
+
+                </div>
+            </div>*@
+            <div class="row">
+                <div class="form-group col-md-7 mr-auto ml-auto">
+                    <div class="form-group col-md-7 mr-auto ml-auto">
+                        @Html.DropDownList("UserId", (IEnumerable<SelectListItem>)ViewBag.AccountManager, "--- Select Account Manager ---", new { @class = "form-control form-control form-control-rounded" })
+                        @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+
+
+                    </div>
+                    @*<select name="AddRoles" class="selectpicker" data-title="Account Manager" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                        <option value="id">Ali </option>
+                        <option value="ms">Jhon</option>
+                        <option value="ca">Saad</option>
+                        <option value="ko">Paks</option>
+                    </select>*@
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>About Me</label>
+                        <textarea rows="8" cols="80" class="form-control" placeholder="Remarks" style="resize: none; height:100px"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="card-footer col-md-2 mr-auto ml-auto">
+                <button type="submit" class="btn btn-fill btn-info btn-wd">Submit</button>
+                @*<button type="submit" class="btn btn-fill btn-info btn-wd">Submit</button>*@
+            </div>
+
+        }
+    </div>
+    
+</div>
+
+
+
